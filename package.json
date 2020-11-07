@@ -1,0 +1,23 @@
+{
+  "name": "facultymodule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lone-Star5/facultyModule.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lone-Star5/facultyModule/issues"
+  },
+  "homepage": "https://github.com/Lone-Star5/facultyModule#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
+}
