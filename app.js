@@ -16,6 +16,10 @@ app.get('/login', (req,res)=>{
     res.render('login');
 })
 
+app.get('/register', (req,res)=>{
+    res.render('register');
+})
+
 // Server Running at port 3000
 app.listen('3000', ()=>{
     console.log('Server Started ...')
