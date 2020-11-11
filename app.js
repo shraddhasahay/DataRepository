@@ -35,10 +35,10 @@ app.get("/login", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  const { email, password } = req.body;
-  console.log(email, password);
+  const { id, password } = req.body;
+  console.log(id, password);
 
-  connection.query("SELECT * FROM Faculty WHERE mailId = ?", [email], function (
+  connection.query("SELECT * FROM Faculty WHERE id = ?", [id], function (
     error,
     results,
     fields
@@ -59,13 +59,13 @@ app.post("/login", (req, res) => {
         } else {
           res.send({
             code: 204,
-            success: "Email and password does not match",
+            success: "Id and password does not match",
           });
         }
       } else {
         res.send({
           code: 206,
-          success: "Email does not exits",
+          success: "Id does not exits",
         });
       }
     }
