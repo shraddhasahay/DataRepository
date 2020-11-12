@@ -20,6 +20,7 @@ connection.connect(function (err) {
 app.use(express.static(__dirname + "/public"));
 // Set ejs template
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + '/node_modules/ckeditor'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
