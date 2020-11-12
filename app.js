@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.get("/", (req, res) => {
-  res.send("Faculty Module");
+  res.render('home');
 });
 
 // Login Page
@@ -96,6 +96,35 @@ app.post("/register", (req, res) => {
     }
   });
 });
+
+
+
+// Fields Routes
+// Faculty Events Attended Page
+app.get('/faculty/eventsAttended', (req,res)=>{
+  res.render('fields/fac_eventsAttended');
+})
+
+// Faculty Club Activities Page
+app.get('/faculty/clubActivities', (req,res)=>{
+  res.render('fields/fac_clubActivities');
+})
+
+// Faculty Awards Page
+app.get('/faculty/Awards', (req,res)=>{
+  res.render('fields/fac_awards');
+})
+
+
+
+
+
+
+
+
+
+
+
 
 // Server Running at port 3000
 app.listen("3000", () => {

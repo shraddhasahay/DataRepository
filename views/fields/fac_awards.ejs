@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Awards & Achievement</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="p-4 pt-5">
+		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/logo.jpg);border:10px #008080"></a>
+          <header id="stuModule-text"><B>FACULTY MODULE</B></header>
+	        <ul class="list-unstyled components mb-5">
+	          <li class="active">
+	            <a href="#">Awards</a>
+	          </li>
+	          <li>
+	              <a href="/faculty/clubActivities">Club Activities</a>
+	          </li>
+	          
+	          <li>
+              <a href="/faculty/eventsAttended">Events Attended</a>
+	          </li>
+	           </ul>
+	      </div>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="images">
+              <img src="../img/college-logo.png" width="150" height="90">
+        </div>
+              <ul class="nav navbar-nav ml-auto">
+                <div class="wrap">
+   <div class="search">
+      <input type="text" class="searchTerm" placeholder="Search here">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+     </button>
+   </div>
+</div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/"><i class="fa fa-home fa-2x" aria-hidden="true" style="color: #008080"></i>Home</a>
+                    
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login"><i class="fa fa-sign-out fa-2x" aria-hidden="true" style="color: #008080"></i>Log-Out</a>
+                    
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </nav>
+         <section id="form">
+      <div class="container-fluid">
+        <h4 class="mb-3">Faculty Awards Data Entry</h4>
+        <form class="needs-validation" novalidate="">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="companyName">Event Name</label>
+              <input type="text" class="form-control" id="companyName" placeholder="" value="" required="">
+              </div>
+              <div class="col-md-6 mb-3">
+              <label for="companyName">Awarded By</label>
+              <input type="text" class="form-control" id="companyName" placeholder="" value="" required="">
+            </div>
+            
+            </div>
+            <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="type">Category</label>
+              <select class="custom-select d-block w-100" id="selectBox" onChange="changeFunc();">
+                <option value="">Choose...</option>
+                <option>Hackathon</option>
+                <option>Competition</option>
+                <option>Sports</option>
+                <option>Cultural</option>
+                <option>Games</option>
+                <option value="others">Others</option>
+              </select>
+              <input name="others" placeholder="Mention Here..." class="form-control" type="text" style="display: none" id="textboxes">
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="type">Level</label>
+              <select class="custom-select d-block w-100" id="type" required="">
+                <option value="">Choose...</option>
+                <option>Department</option>
+                <option>College</option>
+                <option>Inter-College</option>
+                <option>University</option>
+                <option>State</option>
+                <option>National</option>
+                <option>International</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="type">Status</label>
+              <select class="custom-select d-block w-100" id="type" required="">
+                <option value="">Choose...</option>
+                <option>1st Place</option>
+                <option>2nd Place</option>
+                <option>3rd Place</option>
+                <option>Runner Up</option>
+                <option>Winner</option>
+                <option>Participated</option>
+                <option>Consolation</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="type">COE</label>
+              <select class="custom-select d-block w-100" id="type" required="">
+                <option value="">Choose...</option>
+                <option>Additive Manufacuring</option>
+                <option>A data Driven Internet Of Things</option>
+                <option>Integrated Circuits</option>
+                <option>Intelligent energy systems</option>
+                <option>Intelligent Human computer interaction</option>
+                <option>machine intelligence and bigdata</option>
+                <option>Material sciences</option>
+                <option>metallurgical engineering</option>
+                <option>Natural resource management</option>
+                <option>sensors and nanoelectronics</option>
+                <option>signal processing</option>
+                <option>financial markets</option>
+                <option>Intelligent robotics system</option>
+                <option>embedded system</option>
+                <option>Modeling of dynamic systems</option>
+ 
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+            <div class="col-md-12 mb-3">
+              <label for="date">Date of Award</label>
+              <input type="date" class="form-control" id="date" name="date" placeholder="" value="" required="">
+            </div>
+          </div>
+          <label for="description">Event Description</label><br>
+          
+          <div id="editor">
+            <p>This is the editor content.</p>
+        </div>
+        
+          <button class="btn btn-primary btn-lg btn-block buttons" type="submit">Submit</button>  
+          <button class="btn btn-secondary btn-lg btn-block buttons" type="reset">Reset</button>
+  </div>
+
+    </section>
+        
+      </div>
+    </div>
+     <!-- JavaScript for ckeditor -->
+
+     <script src="/ckeditor.js"></script>
+     <script>
+         CKEDITOR.replace( 'editor' );
+     </script>
+
+      <!-- Javascript for Text Box -->
+    <script src="/js/textbox.js"></script>
+
+
+<!-- Locally Hosted Javascript -->
+
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/popper.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/form-validation.js"></script>
+
+  </body>
+</html>
