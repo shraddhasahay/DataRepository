@@ -126,9 +126,33 @@ app.post("/faculty/eventsAttended", (req, res) => {
   });
 });
 
+
+
 // Faculty Club Activities Page
 app.get("/faculty/clubActivities", (req, res) => {
   res.render("fields/fac_clubActivities");
+});
+
+app.post("/faculty/clubActivities", (req, res) => {
+  console.log(req.body);
+  connection.query("INSERT INTO clubActivities SET ?", req.body, function (
+    error,
+    results,
+    fields
+  ) {
+    if (error) {
+      res.send({
+        code: 400,
+        failed: "error ocurred",
+      });
+    } else {
+      //   res.send({
+      //     code: 200,
+      //     success: "user registered sucessfully",
+      //   });
+      res.send({ code: 200, message: "Added successfully!" });
+    }
+  });
 });
 
 // Faculty Awards Page
@@ -136,7 +160,29 @@ app.get("/faculty/Awards", (req, res) => {
   res.render("fields/fac_awards");
 });
 
-// Server Running at port 3000
+app.post("/faculty/Awards", (req, res) => {
+  console.log(req.body);
+  connection.query("INSERT INTO Awards SET ?", req.body, function (
+    error,
+    results,
+    fields
+  ) {
+    if (error) {
+      res.send({
+        code: 400,
+        failed: "error ocurred",
+      });
+    } else {
+      //   res.send({
+      //     code: 200,
+      //     success: "user registered sucessfully",
+      //   });
+      res.send({ code: 200, message: "Added successfully!" });
+    }
+  });
+});
+
+// Server Running at port 4000
 app.listen("4000", () => {
   console.log("Server Started ... http://localhost:4000");
 });
