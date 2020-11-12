@@ -80,7 +80,7 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="companyName">Faculty ID</label>
-              <input type="text" name="" class="form-control" id="companyName" placeholder="" value="" required="">
+              <input type="text" name="id" class="form-control" id="companyName" placeholder="" value="" required="">
             </div>
             <div class="col-md-6 mb-3">
               <label for="Salary">Attended At</label>
@@ -190,42 +190,48 @@
         <!-- JavaScript for ckeditor -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
         <script src="http://malsup.github.com/jquery.form.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ==" crossorigin="anonymous"></script>
         <script src="/ckeditor.js"></script>
         <script>
           CKEDITOR.replace( 'editor' );
             const element = CKEDITOR.document.getById('editor');
-            let eventsAttendedForm = document.querySelector('#eventsAttendedForm')
-            
+            // let eventsAttendedForm = document.querySelector('#eventsAttendedForm')
             // AJAX
-              console.log(eventsAttendedForm)
+              // console.log(eventsAttendedForm)
+              // var formData = new FormData(eventsAttendedForm);
+              // const description = element.getText();
+              // console.log(description);
+              // formData.append("description", description)
+              // $("#eventsAttendedForm").ajaxForm({url: '/faculty/eventsAttended', type: 'post'})
+
+
+              function submitForm(e){
+              // e.preventDefault()
               var formData = new FormData(eventsAttendedForm);
               const description = element.getText();
               console.log(description);
               formData.append("description", description)
-              $("#eventsAttendedForm").ajaxForm({url: '/faculty/eventsAttended', type: 'post'})
+              if (formData.get("activityType") === "others"){
+                formData.set("activityType", document.querySelector(".other-text").value)
+              }else {
+                formData.set("activityType", document.querySelector("select[name='activityType']").value)
+              }
+              var object = {};
+              formData.forEach(function(value, key){
+                  object[key] = value;
+              });
+              var json = JSON.stringify(object);
+              console.log(json);
+              fetch("/faculty/eventsAttended", {
+                method: "POST",
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: json
+              })
+            }
 
-
-            //   function submitForm(e){
-            //   console.log('helloasdsdad')
-            //   e.preventDefault()
-            //   var formData = new FormData(eventsAttendedForm);
-            //   const description = element.getText();
-            //   console.log(description);
-            //   formData.append("description", description)
-            //   if (formData.get("activityType") === "others"){
-            //     formData.set("activityType", document.querySelector(".other-text").value)
-            //   }
-            //   console.log(formData);
-            //   fetch("/faculty/eventsAttended", {
-            //     method: "POST",
-            //     headers: {
-            //       "Content-Type": "multipart/form-data"
-            //     },
-            //     body: formData
-            //   })
-            // }
-
-            // eventsAttendedForm.addEventListener('submit', (e) => submitForm(e))
+            eventsAttendedForm.addEventListener('submit', (e) => submitForm(e))
 
         </script>
 
