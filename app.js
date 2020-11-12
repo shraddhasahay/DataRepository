@@ -20,14 +20,14 @@ connection.connect(function (err) {
 app.use(express.static(__dirname + "/public"));
 // Set ejs template
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + '/node_modules/ckeditor'));
+app.use(express.static(__dirname + "/node_modules/ckeditor"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.get("/", (req, res) => {
-  res.render('home');
+  res.render("home");
 });
 
 // Login Page
@@ -98,34 +98,26 @@ app.post("/register", (req, res) => {
   });
 });
 
-
-
 // Fields Routes
 // Faculty Events Attended Page
-app.get('/faculty/eventsAttended', (req,res)=>{
-  res.render('fields/fac_eventsAttended');
-})
+app.get("/faculty/eventsAttended", (req, res) => {
+  res.render("fields/fac_eventsAttended");
+});
+
+app.post("/faculty/eventsAttended", (req, res) => {
+  console.log(req.body);
+  res.render("fields/fac_eventsAttended");
+});
 
 // Faculty Club Activities Page
-app.get('/faculty/clubActivities', (req,res)=>{
-  res.render('fields/fac_clubActivities');
-})
+app.get("/faculty/clubActivities", (req, res) => {
+  res.render("fields/fac_clubActivities");
+});
 
 // Faculty Awards Page
-app.get('/faculty/Awards', (req,res)=>{
-  res.render('fields/fac_awards');
-})
-
-
-
-
-
-
-
-
-
-
-
+app.get("/faculty/Awards", (req, res) => {
+  res.render("fields/fac_awards");
+});
 
 // Server Running at port 3000
 app.listen("3000", () => {

@@ -68,47 +68,47 @@
          <section id="form">
       <div class="container-fluid">
         <h4 class="mb-3">Faculty Events Attended Data Entry</h4>
-        <form class="needs-validation" novalidate="">
+        <form id="eventsAttendedForm" class="needs-validation" novalidate="">
           <div class="row">
             <div class="col-md-6 mb-3">
               <label for="companyName">Activity Name</label>
-              <input type="text" class="form-control" id="companyName" placeholder="" value="" required="">
+              <input type="text" name="activityName" class="form-control" id="companyName" placeholder="" value="" required="">
               </div>
               <div class="col-md-6 mb-3">
               <label for="companyName">Topic</label>
-              <input type="text" class="form-control" id="companyName" placeholder="" value="" required="">
+              <input type="text" name="topic" class="form-control" id="companyName" placeholder="" value="" required="">
             </div>
             <div class="col-md-6 mb-3">
               <label for="companyName">Faculty ID</label>
-              <input type="text" class="form-control" id="companyName" placeholder="" value="" required="">
+              <input type="text" name="" class="form-control" id="companyName" placeholder="" value="" required="">
             </div>
             <div class="col-md-6 mb-3">
               <label for="Salary">Attended At</label>
-              <input type="text" class="form-control" id="Salary" placeholder="" value="" required="">
+              <input type="text" name="attendedAt" class="form-control" id="Salary" placeholder="" value="" required="">
             </div>
                        
             <div class="col-md-6 mb-3">
               <label for="date">Start Date</label>
-              <input type="date" class="form-control" id="date"  placeholder="" value="" required="">
+              <input type="date" name="startDate" class="form-control" id="date"  placeholder="" value="" required="">
             </div>
             <div class="col-md-6 mb-3">
               <label for="date">End Date</label>
-              <input type="date" class="form-control" id="date"  placeholder="" value="" required="">
+              <input type="date" name="endDate" class="form-control" id="date"  placeholder="" value="" required="">
             </div>
             <div class="col-md-6 mb-3">
               <label for="companyName">Event Objectives</label>
-              <input type="text" class="form-control" id="Salary"  placeholder="" value="" required="">
+              <input type="text" name="objective" class="form-control" id="Salary"  placeholder="" value="" required="">
             </div>
             <div class="col-md-6 mb-3">
               <label for="companyName">Event Benefits</label>
-              <input type="text" class="form-control" id="Salary"  placeholder="" value="" required="">
+              <input type="text" name="benefits" class="form-control" id="Salary"  placeholder="" value="" required="">
             </div>
             
             </div>
             <div class="row">
             <div class="col-md-6 mb-3">
               <label for="type">Activity Type</label>
-              <select class="custom-select d-block w-100" id="selectBox" onChange="changeFunc();">
+              <select name="activityType" class="custom-select d-block w-100" id="selectBox" onChange="changeFunc();">
                 <option value="">Choose...</option>
                 <option>Conference</option>
                 <option>Experrt Lecture</option>
@@ -125,15 +125,15 @@
                 <option>Workshops</option>
                 <option>Invited Talks</option>
                 <option value="others">Others</option>
+                <input name="activityType" placeholder="Mention Here..." class="form-control other-text" type="text" style="display: none" id="textboxes">
+                <div class="invalid-feedback">
+                  Please select a valid type.
+                </div>
               </select>
-              <input name="others" placeholder="Mention Here..." class="form-control" type="text" style="display: none" id="textboxes">
-              <div class="invalid-feedback">
-                Please select a valid type.
-              </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="type">Level</label>
-              <select class="custom-select d-block w-100" id="type" required="">
+              <select name="level" class="custom-select d-block w-100" id="type" required="">
                 <option value="">Choose...</option>
                 <option>Department</option>
                 <option>College</option>
@@ -150,7 +150,7 @@
             
           <div class="col-md-12 mb-3">
               <label for="type">COE</label>
-              <select class="custom-select d-block w-100" id="type" required="">
+              <select name="COE" class="custom-select d-block w-100" id="type" required="">
                 <option value="">Choose...</option>
                 <option>Additive Manufacuring</option>
                 <option>A data Driven Internet Of Things</option>
@@ -176,7 +176,7 @@
             </div>
           <label for="description">Event Description</label><br>
           
-          <div id="editor">
+          <div name="description" id="editor">
             <p>This is the editor content.</p>
         </div>
           <button class="btn btn-primary btn-lg btn-block buttons" type="submit">Submit</button>  
@@ -188,10 +188,31 @@
       </div>
     </div>
         <!-- JavaScript for ckeditor -->
-
         <script src="/ckeditor.js"></script>
         <script>
-            CKEDITOR.replace( 'editor' );
+          CKEDITOR.replace( 'editor' );
+            const element = CKEDITOR.document.getById('editor');
+            
+            async function submitForm(e){
+              e.preventDefault()
+              var formData = new FormData(eventsAttendedForm);
+              const description = element.getText();
+              formData.append("description", description)
+              if (formData.get("activityType") === "others"){
+                formData.set("activityType", document.querySelector(".other-text").value)
+              }
+
+              await fetch("/faculty/eventsAttended", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "multipart/form-data"
+                },
+                body: formData,
+              })
+            }
+
+            eventsAttendedForm.addEventListener('submit', (e) => submitForm(e))
+
         </script>
 
          <!-- Javascript for Text Box -->
