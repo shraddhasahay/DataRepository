@@ -45,13 +45,13 @@
         </div>
               <ul class="nav navbar-nav ml-auto">
                 <div class="wrap">
-   <div class="search">
-      <input type="text" class="searchTerm" placeholder="Search here">
-      <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-     </button>
-   </div>
-</div>
+                  <div class="search">
+                      <input type="text" class="searchTerm" placeholder="Search here">
+                      <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
                 <li class="nav-item active">
                     <a class="nav-link" href="/"><i class="fa fa-home fa-2x" aria-hidden="true" style="color: #008080"></i>Home</a>
                     
@@ -188,35 +188,50 @@
       </div>
     </div>
         <!-- JavaScript for ckeditor -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script src="http://malsup.github.com/jquery.form.js"></script> 
         <script src="/ckeditor.js"></script>
         <script>
           CKEDITOR.replace( 'editor' );
             const element = CKEDITOR.document.getById('editor');
+            let eventsAttendedForm = document.querySelector('#eventsAttendedForm')
             
-            async function submitForm(e){
-              e.preventDefault()
+            // AJAX
+              console.log(eventsAttendedForm)
               var formData = new FormData(eventsAttendedForm);
               const description = element.getText();
+              console.log(description);
               formData.append("description", description)
-              if (formData.get("activityType") === "others"){
-                formData.set("activityType", document.querySelector(".other-text").value)
-              }
+              $("#eventsAttendedForm").ajaxForm({url: '/faculty/eventsAttended', type: 'post'})
 
-              await fetch("/faculty/eventsAttended", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "multipart/form-data"
-                },
-                body: formData,
-              })
-            }
 
-            eventsAttendedForm.addEventListener('submit', (e) => submitForm(e))
+            //   function submitForm(e){
+            //   console.log('helloasdsdad')
+            //   e.preventDefault()
+            //   var formData = new FormData(eventsAttendedForm);
+            //   const description = element.getText();
+            //   console.log(description);
+            //   formData.append("description", description)
+            //   if (formData.get("activityType") === "others"){
+            //     formData.set("activityType", document.querySelector(".other-text").value)
+            //   }
+            //   console.log(formData);
+            //   fetch("/faculty/eventsAttended", {
+            //     method: "POST",
+            //     headers: {
+            //       "Content-Type": "multipart/form-data"
+            //     },
+            //     body: formData
+            //   })
+            // }
+
+            // eventsAttendedForm.addEventListener('submit', (e) => submitForm(e))
 
         </script>
 
          <!-- Javascript for Text Box -->
           <script src="/js/textbox.js"></script>
+          
 
   <!-- Locally Hosted Javascript -->
 
