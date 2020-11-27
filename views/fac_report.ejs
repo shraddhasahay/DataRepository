@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Faculty Report</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="table-data">
+        <h4>Faculty Table</h4>
+        <table border="1">
+            <tr>
+                <!--th>S.N</th>
+                <th>USN</th-->
+                <th>Activity Name</th>
+                <th>Attended At</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>COE</th>
+            </tr>
+        <%if(userData.length!=0){ %>
+        <%var i=1; %>
+        <%userData.forEach(function(data){%>
+            <tr>
+                <!--td><%=i; %></td>
+                <td><%=data.usn %></td-->
+                <td><%=data.activityName %></td>
+                <td><%=data.attendedAt %></td>
+                <td><%=data.startDate%></td>
+                <td><%=data.endDate%></td>
+                <td><%=data.COE%></td>
+            </tr>
+            <%  i++; }) %>
+            <% } else{ %>
+            <tr>
+                <td colspan="8">No Data Found</td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+</body>
+
+</html>
