@@ -7,38 +7,54 @@
 </head>
 
 <body>
-    <div class="table-data">
+    <div>
         <h4>Faculty Table</h4>
-        <table border="1">
-            <tr>
-                <!--th>S.N</th>
-                <th>USN</th-->
-                <th>Activity Name</th>
-                <th>Attended At</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>COE</th>
-            </tr>
-        <%if(userData.length!=0){ %>
-        <%var i=1; %>
-        <%userData.forEach(function(data){%>
-            <tr>
-                <!--td><%=i; %></td>
-                <td><%=data.usn %></td-->
-                <td><%=data.activityName %></td>
-                <td><%=data.attendedAt %></td>
-                <td><%=data.startDate%></td>
-                <td><%=data.endDate%></td>
-                <td><%=data.COE%></td>
-            </tr>
-            <%  i++; }) %>
-            <% } else{ %>
-            <tr>
-                <td colspan="8">No Data Found</td>
-            </tr>
-            <% } %>
+        <table id="table-data" class="table" border="1">
+            <thead>
+                <tr>
+                    <% Object.keys(data[0]).forEach(key => { %>
+                    <th><%= key%></th>
+                    <% }) %>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <% data.forEach((obj)=>{ %>
+                    <tr>
+                        <% Object.values(obj).forEach(val => { %>
+                            <td> <%= val %></td>
+                        <% }) %>
+                    </tr>
+                    
+                <% }) %>
+            </tbody>
         </table>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous">
+    </script>
+    <script src="../src/table2csv.js"></script>
+
+    <script src="../src/tableHTMLExport.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.0.10/jspdf.plugin.autotable.min.js"></script>
+
+
+    <script>
+        // let ele = $("#example");
+        // console.log(ele);
+        // $("#example").tableHTMLExport({
+
+        // type:'pdf',
+        // orientation: 'p'
+
+        // });
+        var doc = new jsPDF()
+        doc.autoTable({ html: '#table-data' })
+        doc.save('data.pdf')
+    </script>
 </body>
 
 </html>

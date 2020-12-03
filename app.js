@@ -182,6 +182,49 @@ app.post("/faculty/Awards", (req, res) => {
   });
 });
 
+//Route for Report Generation
+app.get("/faculty/search", (req, res) => {
+  res.render('fac_search');
+});
+
+//Filter Data and Print
+app.post("/faculty/search", (req, res) => {
+  console.log(req.body)
+  let event  = req.body.event;
+  let fromDate = req.body.fromDate;
+  let toDate = req.body.toDate;
+  // var fltrEType = req.body.fltrEType;
+  // var fltrAddedBy = req.body.fltrAddedBy;
+  // var fltrSDate = req.body.fltrSDate;
+  // var fltrEdate = req.body.fltrEdate;
+  // var sql = 'SELECT * FROM eventsAttended where activityType = ?';
+  // connection.query(sql,[fltrEType], function (err, data, fields) {
+  //   if (err) throw err;
+  //   res.render('fac_report', {
+  //     title: 'Faculty Report',
+  //     userData: data
+  //   });
+  // });
+  console.log(fromDate,toDate)
+  let sql = `Select * from ${event} Where date BETWEEN ? AND ? `;
+
+  connection.query(sql,[fromDate,toDate],(err,result,fields)=>{
+    if(err) throw err;
+    console.log(result);
+    result.forEach((res)=>{
+      if(req.body.details == "true"){
+        delete res.description;
+      }
+    })
+    res.render('fac_report', {
+      title: 'Faculty Report',
+      data: result
+    });
+  })
+ 
+
+});
+
 // Server Running at port 4000
 app.listen("4000", () => {
   console.log("Server Started ... http://localhost:4000");
