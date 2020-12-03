@@ -160,28 +160,6 @@ app.get("/faculty/Awards", (req, res) => {
   res.render("fields/fac_awards");
 });
 
-//Route for Report Generation
-app.get("/faculty/search", (req, res) => {
-  res.render('fac_search');
-});
-
-//Filter Data and Print
-app.post("/faculty/search", (req, res) => {
-  var fltrEType = req.body.fltrEType;
-  var fltrAddedBy = req.body.fltrAddedBy;
-  var fltrSDate = req.body.fltrSDate;
-  var fltrEdate = req.body.fltrEdate;
-  var sql = 'SELECT * FROM eventsAttended where activityType = ?';
-  connection.query(sql,[fltrEType], function (err, data, fields) {
-    if (err) throw err;
-    res.render('fac_report', {
-      title: 'Faculty Report',
-      userData: data
-    });
-  });
-
-});
-
 app.post("/faculty/Awards", (req, res) => {
   console.log(req.body);
   connection.query("INSERT INTO Awards SET ?", req.body, function (
