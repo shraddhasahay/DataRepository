@@ -189,10 +189,12 @@ app.get("/faculty/search", (req, res) => {
 
 //Filter Data and Print
 app.post("/faculty/search", (req, res) => {
-  console.log(req.body)
   let event  = req.body.event;
   let fromDate = req.body.fromDate;
   let toDate = req.body.toDate;
+  let dept = req.body.dep.toUpperCase();
+  let COE = req.body.COE;
+  console.log(dept)
   // var fltrEType = req.body.fltrEType;
   // var fltrAddedBy = req.body.fltrAddedBy;
   // var fltrSDate = req.body.fltrSDate;
@@ -205,20 +207,30 @@ app.post("/faculty/search", (req, res) => {
   //     userData: data
   //   });
   // });
-  console.log(fromDate,toDate)
-  let sql = `Select * from ${event} Where date BETWEEN ? AND ? `;
+  // console.log(fromDate,toDate)
+  console.log(req.body);
+  let sql = `Select * from ${event} Where (filterDate BETWEEN ? AND ?)`;
 
   connection.query(sql,[fromDate,toDate],(err,result,fields)=>{
     if(err) throw err;
     console.log(result);
-    result.forEach((res)=>{
-      if(req.body.details == "true"){
+    let data = [];
+    result.forEach((res,i)=>{
+      if(res.department == null){
+        res.department = "NULL"
+      }
+      if(req.body.details == "false"){
         delete res.description;
+      }
+      delete res.id;
+      if((((res.department == "NULL") || (dept=='ALL')  || (res.department == dept))&&((COE=='All') || (COE == res.COE)))){
+        res.filterDate = res.filterDate.toDateString();
+        data.push(res);
       }
     })
     res.render('fac_report', {
       title: 'Faculty Report',
-      data: result
+      data: data
     });
   })
  

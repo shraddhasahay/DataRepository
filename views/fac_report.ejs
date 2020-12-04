@@ -29,6 +29,9 @@
                 <% }) %>
             </tbody>
         </table>
+        <div>
+            <button id="pdf">PDF</button>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
@@ -51,9 +54,12 @@
         // orientation: 'p'
 
         // });
-        var doc = new jsPDF()
-        doc.autoTable({ html: '#table-data' })
-        doc.save('data.pdf')
+        document.querySelector('#pdf').addEventListener('click',()=>{
+            let doc = new jsPDF()
+            doc.autoTable({ html: '#table-data' })
+            doc.save('data.pdf')
+        })
+        
     </script>
 </body>
 

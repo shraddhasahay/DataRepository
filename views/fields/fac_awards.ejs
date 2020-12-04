@@ -140,30 +140,34 @@
               <label for="type">COE</label>
               <select name="COE" class="custom-select d-block w-100" id="type" required="">
                 <option value="">Choose...</option>
-                <option>Additive Manufacuring</option>
-                <option>A data Driven Internet Of Things</option>
-                <option>Integrated Circuits</option>
-                <option>Intelligent energy systems</option>
-                <option>Intelligent Human computer interaction</option>
-                <option>machine intelligence and bigdata</option>
-                <option>Material sciences</option>
-                <option>metallurgical engineering</option>
-                <option>Natural resource management</option>
-                <option>sensors and nanoelectronics</option>
-                <option>signal processing</option>
-                <option>financial markets</option>
-                <option>Intelligent robotics system</option>
-                <option>embedded system</option>
-                <option>Modeling of dynamic systems</option>
+                <option value="Additive Manufacturing">Additive Manufacturing</option>
+                    <option value ="Data-Driven Internet of Things">Data-Driven Internet of Things</option>
+                    <option value="Integrated Circuits">Integrated Circuits</option>
+                    <option value="Intelligent Energy Systems">Intelligent Energy Systems</option>
+                    <option value="Intelligent Human Computer Interaction">Intelligent Human Computer Interaction</option>
+                    <option value="Machine Intelligence and Bigdata">Machine Intelligence and Bigdata</option>
+                    <option value="Material Sciences">Material Sciences</option>
+                    <option value="Metallurgical Engineering">Metallurgical Engineering</option>
+                    <option value="Natural Resource Management">Natural Resource Management</option>
+                    <option value ="Sensors and Nanoelectronics">Sensors and Nanoelectronics</option>
+                    <option value="Signal Processing">Signal Processing </option>
+                    <option value="Financial Markets">Financial markets</option>
+                    <option value="Intelligent Robotics System">Intelligent robotics system</option>
+                    <option value="Embedded System">Embedded system</option>
+                    <option value ="Modeling of Dynamic Systems">Modeling of dynamic systems</option>
  
               </select>
               <div class="invalid-feedback">
                 Please select a valid type.
               </div>
             </div>
-            <div class="col-md-12 mb-3">
+            <div class="col-md-6 mb-3">
               <label for="date">Date of Award</label>
               <input type="date" name="date" class="form-control" id="date" name="date" placeholder="" value="" required="">
+            </div>
+            <div class="col-md-6">
+              <label>Filtering Date</label>
+              <input type="date" class="form-control" name="filterDate">
             </div>
           </div>
           <label for="description">Event Description</label><br>
