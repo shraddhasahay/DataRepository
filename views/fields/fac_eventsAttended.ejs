@@ -116,7 +116,7 @@
               <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="type">Activity Type</label>
-                <select name="activityType" class="custom-select d-block w-100" id="selectBox" onChange="changeFunc();">
+                <select name="activityType" class="custom-select d-block w-100" id="selectBox" onChange="changeFunc();" required>
                   <option value="">Choose...</option>
                   <option>Conference</option>
                   <option>Experrt Lecture</option>
@@ -233,18 +233,26 @@
                 formData.set("activityType", document.querySelector("select[name='activityType']").value)
               }
               var object = {};
+              let flag=true;
               formData.forEach(function(value, key){
                   object[key] = value;
+                  if(value="")
+                    flag=false;
               });
               var json = JSON.stringify(object);
               console.log(json);
-              fetch("/faculty/eventsAttended", {
+              if(flag){
+                fetch("/faculty/eventsAttended", {
                 method: "POST",
                 headers: {
                   'Content-Type': 'application/json'
                 },
                 body: json
               })
+              }else{
+                alert('Please fill required fields')
+              }
+              
             }
 
             eventsAttendedForm.addEventListener('submit', (e) => submitForm(e))

@@ -90,7 +90,7 @@
             <div class="row">
             <div class="col-md-6 mb-3">
               <label for="type">Category</label>
-              <select name="category" class="custom-select d-block w-100" id="selectBox" onChange="changeFunc();">
+              <select name="category" class="custom-select d-block w-100" id="selectBox" onChange="changeFunc();" required>
                 <option value="">Choose...</option>
                 <option>Hackathon</option>
                 <option>Competition</option>
@@ -163,11 +163,11 @@
             </div>
             <div class="col-md-6 mb-3">
               <label for="date">Date of Award</label>
-              <input type="date" name="date" class="form-control" id="date" name="date" placeholder="" value="" required="">
+              <input type="date" name="date" class="form-control" id="date" name="date" placeholder="" value="" required>
             </div>
             <div class="col-md-6">
               <label>Filtering Date</label>
-              <input type="date" class="form-control" name="filterDate">
+              <input type="date" class="form-control" name="filterDate" required>
             </div>
           </div>
           <label for="description">Event Description</label><br>
@@ -205,18 +205,27 @@
                 formData.set("category", document.querySelector("select[name='category']").value)
               }
               var object = {};
+              let flag = true;
               formData.forEach(function(value, key){
                   object[key] = value;
+                  if(value=="")
+                    flag=false;
               });
               var json = JSON.stringify(object);
               console.log(json);
-              fetch("/faculty/Awards", {
-                method: "POST",
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: json
-              })
+              if(flag){
+                fetch("/faculty/Awards", {
+                  method: "POST",
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: json
+                })
+              }
+              else{
+                alert('Please fill required fields')
+              }
+              
             }
 
             awardsForm.addEventListener('submit', (e) => submitForm(e))

@@ -261,18 +261,26 @@
                 //formData.set("activityType", document.querySelector("select[name='activityType']").value)
               //}
               var object = {};
+              let flag=true;
               formData.forEach(function(value, key){
                   object[key] = value;
+                  if(value == "")
+                    flag=false;
               });
               var json = JSON.stringify(object);
               console.log(json);
-              fetch("/faculty/clubActivities", {
+              if(flag){
+                fetch("/faculty/clubActivities", {
                 method: "POST",
                 headers: {
                   'Content-Type': 'application/json'
                 },
                 body: json
               })
+              }else{
+                alert('Please fill required fields')
+              }
+              
             }
 
             clubActivitiesForm.addEventListener('submit', (e) => submitForm(e))
