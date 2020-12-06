@@ -199,12 +199,7 @@
                 <label for="Salary">Participant Numbers</label>
                 <input type="number" name="participantNo" class="form-control" id="Salary" placeholder="" value="" required="">
               </div>
-              <div class="col-md-6">
-                <label>Filtering Date</label>
-                <input type="date" class="form-control" name="filterDate">
-              </div>
-            </div>
-            <div class="col-md-12 mb-3">
+            <div class="col-md-6 mb-3">
               <label for="type">COE</label>
               <select name="COE" class="custom-select d-block w-100" id="type" required="">
                 <option value="">Choose...</option>
@@ -225,10 +220,13 @@
                 <option value ="Modeling of Dynamic Systems">Modeling of dynamic systems</option>
   
               </select>
-           <label for="description">Event Description</label><br>
-                     <div name="description" id="editor">
+            </div>
+            <div class="col-md-12">
+              <label for="description">Event Description</label><br>
+              <div name="description" id="editor">
               <p>This is the editor content.</p>
-          </div>
+            </div>
+           
           
             <button class="btn btn-primary btn-lg btn-block buttons" type="submit">Submit</button>  
             <button class="btn btn-secondary btn-lg btn-block buttons" type="reset">Reset</button>
@@ -267,9 +265,24 @@
                   if(value == "")
                     flag=false;
               });
-              var json = JSON.stringify(object);
-              console.log(json);
               if(flag){
+                object.filterDate=new Date();
+                let day = object.filterDate.getDate();
+                let month = object.filterDate.getMonth();
+                let year = object.filterDate.getFullYear();
+                if(day<=5){
+                  day=30;
+                  month = month==0? 11: month-1;
+                  if(month==11){
+                    year--;
+                  }
+                }else{
+                  day = 30;
+                }
+                object.filterDate = new Date(year,month,day).toDateString();
+                var json = JSON.stringify(object);
+
+
                 fetch("/faculty/clubActivities", {
                 method: "POST",
                 headers: {

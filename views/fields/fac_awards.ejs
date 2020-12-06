@@ -161,13 +161,9 @@
                 Please select a valid type.
               </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-12 mb-3">
               <label for="date">Date of Award</label>
               <input type="date" name="date" class="form-control" id="date" name="date" placeholder="" value="" required>
-            </div>
-            <div class="col-md-6">
-              <label>Filtering Date</label>
-              <input type="date" class="form-control" name="filterDate" required>
             </div>
           </div>
           <label for="description">Event Description</label><br>
@@ -211,9 +207,23 @@
                   if(value=="")
                     flag=false;
               });
-              var json = JSON.stringify(object);
-              console.log(json);
               if(flag){
+                object.filterDate=new Date();
+                let day = object.filterDate.getDate();
+                let month = object.filterDate.getMonth();
+                let year = object.filterDate.getFullYear();
+                if(day<=5){
+                  day=30;
+                  month = month==0? 11: month-1;
+                  if(month==11){
+                    year--;
+                  }
+                }else{
+                  day = 30;
+                }
+                object.filterDate = new Date(year,month,day).toDateString();
+                var json = JSON.stringify(object);
+
                 fetch("/faculty/Awards", {
                   method: "POST",
                   headers: {

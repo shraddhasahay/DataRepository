@@ -156,7 +156,7 @@
                 </div>
               </div>
               
-            <div class="col-md-6 mb-3">
+            <div class="col-md-12 mb-3">
                 <label for="type">COE</label>
                 <select name="COE" class="custom-select d-block w-100" id="type" required="">
                   <option value="">Choose...</option>
@@ -181,11 +181,7 @@
                   Please select a valid type.
                 </div>
               </div>
-              <div class="col-md-6">
-                <label>Filtering Date</label>
-                <input type="date" class="form-control" name="filterDate">
-              </div>
-              </div>
+            </div>
             <label for="description">Event Description</label><br>
             
             <div name="description" id="editor">
@@ -236,12 +232,28 @@
               let flag=true;
               formData.forEach(function(value, key){
                   object[key] = value;
-                  if(value="")
+                  if(value == "")
                     flag=false;
               });
-              var json = JSON.stringify(object);
-              console.log(json);
+              console.log(object)
               if(flag){
+                object.filterDate=new Date();
+                let day = object.filterDate.getDate();
+                let month = object.filterDate.getMonth();
+                let year = object.filterDate.getFullYear();
+                if(day<=5){
+                  day=30;
+                  month = month==0? 11: month-1;
+                  if(month==11){
+                    year--;
+                  }
+                }else{
+                  day = 30;
+                }
+                object.filterDate = new Date(year,month,day).toDateString();
+                var json = JSON.stringify(object);
+
+
                 fetch("/faculty/eventsAttended", {
                 method: "POST",
                 headers: {
