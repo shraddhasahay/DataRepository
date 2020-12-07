@@ -250,7 +250,8 @@
                 }else{
                   day = 30;
                 }
-                object.filterDate = new Date(year,month,day).toDateString();
+                month++;
+                object.filterDate = year.toString()+"-"+month.toString()+"-"+day.toString();
                 var json = JSON.stringify(object);
 
 

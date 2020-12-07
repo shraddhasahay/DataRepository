@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Student Report</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div>
+        <h4>Student Table</h4>
+        <table id="table-data" class="table" border="1">
+            <thead>
+                <tr>
+                    <% Object.keys(data[0]).forEach(key => { %>
+                    <th><%= key%></th>
+                    <% }) %>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <% data.forEach((obj)=>{ %>
+                    <tr>
+                        <% Object.values(obj).forEach(val => { %>
+                            <td> <%= val %></td>
+                        <% }) %>
+                    </tr>
+                    
+                <% }) %>
+            </tbody>
+        </table>
+        <div>
+            <button id="pdf">PDF</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous">
+    </script>
+    <script src="../src/table2csv.js"></script>
+
+    <script src="../src/tableHTMLExport.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.0.10/jspdf.plugin.autotable.min.js"></script>
+
+
+    <script>
+        document.querySelector('#pdf').addEventListener('click',()=>{
+            let doc = new jsPDF()
+            doc.autoTable({ html: '#table-data' })
+            doc.save('data.pdf')
+        })
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Events Attended</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+            <div class="p-4 pt-5">
+                <a href="#" class="img logo rounded-circle mb-5"
+                    style="background-image: url(images/logo.jpg);border:10px #008080"></a>
+                <header id="stuModule-text"><B>STUDENT MODULE</B></header>
+                <ul class="list-unstyled components mb-5">
+                    <li>
+                        <a href="/students/Awards">Awards & Achievements</a>
+                    </li>
+
+                    <li class="active">
+                        <a href="#">Events Attended</a>
+                    </li>
+                    <li>
+                        <a href="/students/placement">Placement</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content" class="p-4 p-md-5">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="images">
+                            <img src="../img/college-logo.png" width="150" height="90">
+                        </div>
+                        <ul class="nav navbar-nav ml-auto">
+                            <div class="wrap">
+                                <div class="search">
+                                    <input type="text" class="searchTerm" placeholder="Search here">
+                                    <button type="submit" class="searchButton">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/"><i class="fa fa-home fa-2x" aria-hidden="true"
+                                        style="color: #008080"></i>Home</a>
+
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#"><i class="fa fa-sign-out fa-2x" aria-hidden="true"
+                                        style="color: #008080"></i>Log-Out</a>
+
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <section id="form">
+                <form id="eventsAttendedForm" class="needs-validation" novalidate="">
+                    <div class="container-fluid">
+                        <div class="row data-row">
+                            <div class="col-md-8 mb-3">
+                                <h4 class="mb-3">Event Attended Data Entry</h4>
+                            </div>
+                            <div class="col-md-4 mb-3 report">
+                                <a class="btn btn-dark" href="/students/search" role="button">Generate Report</a>
+                                <!-- <button type="button" class="btn btn-dark">Generate Report</button> -->
+                            </div>
+                        </div>
+                        <div class="row data-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="activityName">Activity Name</label>
+                                <input type="text" name="activityName" class="form-control" id="activityName"
+                                    placeholder="" value="" required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="topic">Topic</label>
+                                <input type="text" name="topic" class="form-control" id="topic" placeholder="" value=""
+                                    required="">
+                            </div>
+                        </div>
+                        <div class="row data-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="usn">USN</label>
+                                <input type="text" name="usn" class="form-control" id="usn" placeholder="" value=""
+                                    required="">
+                                <div class="invalid-feedback">
+                                    Valid USN is required.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="attendedAt">Attended At</label>
+                                <input type="text" name="attendedAt" class="form-control" id="attendedAt" placeholder=""
+                                    value="" required="">
+                            </div>
+                        </div>
+                        <div class="row data-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="startDate">Start Date</label>
+                                <input type="date" name="startDate" class="form-control" id="startDate" placeholder=""
+                                    value="" required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="endDate">End Date</label>
+                                <input type="date" class="form-control" id="endDate" name="endDate" placeholder=""
+                                    value="" required="">
+                            </div>
+                        </div>
+                        <div class="row data-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="type">COE</label>
+                                <select name="COE" class="custom-select d-block w-100" id="type" required="">
+                                    <option value="">Choose...</option>
+                                    <option>Additive Manufacturing</option>
+                                    <option>Data-Driven Internet of Things</option>
+                                    <option>Integrated Circuits</option>
+                                    <option>Intelligent Energy Systems</option>
+                                    <option>Intelligent Human Computer Interaction</option>
+                                    <option>Machine Intelligence and Bigdata</option>
+                                    <option>Material Sciences</option>
+                                    <option>Metallurgical Engineering,</option>
+                                    <option>Natural Resource Management</option>
+                                    <option>Sensors and Nanoelectronics</option>
+                                    <option>Signal Processing </option>
+                                    <option>Financial markets</option>
+                                    <option>Intelligent robotics system</option>
+                                    <option>Embedded system</option>
+                                    <option>Modeling of dynamic systems</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a valid type.
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="type">Level</label>
+                                <select name="level" class="custom-select d-block w-100" id="type" required="">
+                                    <option value="">Choose...</option>
+                                    <option>International</option>
+                                    <option>University</option>
+                                    <option>Inter College</option>
+                                    <option>State</option>
+                                    <option>Department</option>
+                                    <option>College</option>
+                                    <option>National</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select a valid type.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row data-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="type">Activity Type</label>
+                                <select class="custom-select d-block w-100" name="activityType" id="selectBox"
+                                    required="" onChange="changeFunc();">
+                                    <option value="">Choose...</option>
+                                    <option>Conference</option>
+                                    <option>Expert Lecture</option>
+                                    <option>FDP</option>
+                                    <option>Guest lecture</option>
+                                    <option>Industry visit</option>
+                                    <option>NCC</option>
+                                    <option>NSS</option>
+                                    <option>Placement Talk</option>
+                                    <option>Seminars</option>
+                                    <option>Webinars</option>
+                                    <option>Symposium</option>
+                                    <option>Training Programme</option>
+                                    <option>Workshop</option>
+                                    <option>Invited Talk</option>
+                                    <option value="others">Others</option>
+                                </select>
+                                <input name="activityType" placeholder="Mention Here..." class="form-control other-text"
+                                    type="text" style="display: none" id="textboxes">
+                                <div class="invalid-feedback">
+                                    Please select a valid category.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="objective">Objective</label>
+                                <input name="objective" type="text" class="form-control" id="objective" placeholder=""
+                                    value="" required="">
+
+                            </div>
+                        </div>
+                        <div class="row data-row">
+
+                            <div class="col-md-4 mb-3">
+                                <label for="benefits">Benefits</label>
+                                <input type="text" class="form-control" name="benefits" id="benefits" placeholder=""
+                                    value="" required="">
+                            </div>
+
+                            <!-- Department Field -->
+
+                            <div class="col-md-4 mb-3">
+                                <label for="type">Department</label>
+                                <select name="department" class="custom-select d-block w-100" id="type" required="">
+                                    <option value="">Choose...</option>
+                                    <option>CSE</option>
+                                    <option>ISE</option>
+                                    <option>CSE</option>
+                                    <option>ISE</option>
+                                    <option>ECE</option>
+                                    <option>TCE</option>
+                                    <option>EEE</option>
+                                    <option>CIV</option>
+                                    <option>MECH</option>
+                                    <option>MBA</option>
+                                    <option>MCA</option>
+                                    <option>Basic Sciences</option>
+                                </select>
+
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label>Submission Date</label>
+                                <input type="date" class="form-control" name="filterDate">
+                                <div class="invalid-feedback">
+                                    Please select a valid date.
+                                  </div>
+                            </div>
+
+                        </div>
+
+                        
+                            
+
+                        <label for="description">Description</label>
+                        <div name="description" id="editor">
+                            <p>This is the editor content.</p>
+                        </div>
+                        <button class="btn btn-primary btn-lg btn-block buttons" type="submit">Submit</button>
+                        <button class="btn btn-secondary btn-lg btn-block buttons" type="reset">Reset</button>
+                    </div>
+                </form>
+            </section>
+
+
+        </div>
+    </div>
+
+    <!-- JavaScript for ckeditor -->
+    <script src="/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace('editor');
+    </script>
+
+    <!-- Javascript for Text Box -->
+
+    <script src="../../js/textbox.js"></script>
+
+    <!-- Locally Hosted Javascript -->
+
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/popper.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="../../js/form-validation.js"></script>
+    <script>
+        CKEDITOR.replace('editor');
+        const element = CKEDITOR.document.getById('editor');
+
+        function submitForm(e) {
+            // e.preventDefault()
+            var formData = new FormData(eventsAttendedForm);
+            const description = element.getText();
+            console.log(description);
+            formData.append("description", description)
+            if (formData.get("activityType") === "others") {
+                formData.set("activityType", document.querySelector(".other-text").value)
+            } else {
+                formData.set("activityType", document.querySelector("select[name='activityType']").value)
+            }
+            var object = {};
+            formData.forEach(function (value, key) {
+                object[key] = value;
+            });
+            var json = JSON.stringify(object);
+            console.log(json);
+            fetch("/students/eventsAttended", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: json
+            })
+        }
+
+        eventsAttendedForm.addEventListener('submit', (e) => submitForm(e))
+    </script>
+</body>
+
+</html>

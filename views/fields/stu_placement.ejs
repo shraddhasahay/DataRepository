@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Student Placement</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+      <div class="p-4 pt-5">
+        <a href="#" class="img logo rounded-circle mb-5"
+          style="background-image: url(images/logo.jpg);border:10px #008080"></a>
+        <header id="stuModule-text"><B>STUDENT MODULE</B></header>
+        <ul class="list-unstyled components mb-5">
+          <li>
+            <a href="/students/Awards">Awards & Achievements</a>
+          </li>
+          <li>
+            <a href="/students/eventsAttended">Events Attended</a>
+          </li>
+
+          <li class="active">
+            <a href="#">Placement</a>
+          </li>
+        </ul>
+
+
+      </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <!-- Toggle Nav Bar -->
+
+            <!-- <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+              </button>
+              <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa fa-bars"></i>
+              </button> -->
+
+            <div class="images">
+              <img src="../img/college-logo.png" width="150" height="90">
+            </div>
+            <ul class="nav navbar-nav ml-auto">
+              <div class="wrap">
+
+                <div class="search">
+                  <input type="text" class="searchTerm" placeholder="Search here">
+                  <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </div>
+              <li class="nav-item active">
+                <a class="nav-link" href="/"><i class="fa fa-home fa-2x" aria-hidden="true"
+                    style="color: #008080"></i>Home</a>
+
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#"><i class="fa fa-sign-out fa-2x" aria-hidden="true"
+                    style="color: #008080"></i>Log-Out</a>
+              </li>
+              <!--li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li-->
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Data Entry -->
+
+      <section id="form">
+        <form id="placementsForm" class="needs-validation" novalidate="">
+          <div class="container-fluid">
+            <div class="row data-row">
+              <div class="col-md-8 mb-3">
+                <h4 class="mb-3">Placement Data Entry</h4>
+              </div>
+              <div class="col-md-4 mb-3 report">
+                <a class="btn btn-dark" href="/students/search" role="button">Generate Report</a>
+                <!-- <button type="button" class="btn btn-dark">Generate Report</button> -->
+              </div>
+            </div>
+            <div class="row data-row">
+              <div class="col-md-6 mb-3">
+                <label for="studentName">Student Name</label>
+                <input type="text" name="studentName" class="form-control" id="studentName" placeholder="" value=""
+                  required="">
+                <div class="invalid-feedback">
+                  Valid student name is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="studentUSN">USN</label>
+                <input type="text" class="form-control" name="usn" id="companyName" placeholder="" value="" required="">
+                <div class="invalid-feedback">
+                  Valid USN is required.
+                </div>
+              </div>
+            </div>
+            <div class="row data-row">
+              <div class="col-md-6 mb-3">
+                <label for="companyName">Company Name</label>
+                <input type="text" class="form-control" name="companyName" id="companyName" placeholder="" value=""
+                  required="">
+                <div class="invalid-feedback">
+                  Valid company name is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="Salary">Salary</label>
+                <input type="text" class="form-control" name="salary" id="Salary" placeholder="" value="" required="">
+                <div class="invalid-feedback">
+                  Valid Salary is required.
+                </div>
+              </div>
+            </div>
+            <div class="row data-row">
+              <div class="col-md-6 mb-3">
+                <label for="evenTdate">Drive Date</label>
+                <input type="date" class="form-control" id="eventDate" name="date" placeholder="" value="" required="">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="placementDrive">Drive Type</label>
+                <select class="custom-select d-block w-100" name="driveType" id="driveType" required="">
+                  <option value="">Choose...</option>
+                  <option>On Campus</option>
+                  <option>Off Campus</option>
+                </select>
+
+                <div class="invalid-feedback">
+                  Placement Drive required.
+                </div>
+              </div>
+
+            </div>
+            <div class="row data-row">
+              <div class="col-md-6 mb-3">
+                <label for="company">Company Type</label>
+                <select class="custom-select d-block w-100" name="companyType" id="company" required="">
+                  <option value="">Choose...</option>
+                  <option>Indian Company</option>
+                  <option>Foreign Company</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please provide a valid company name.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="type">Type</label>
+                <select name="type" class="custom-select d-block w-100" id="type" required="">
+                  <option value="">Choose...</option>
+                  <option>Placement</option>
+                  <option>Internship</option>
+                </select>
+                <div class="invalid-feedback">
+                  Please select a valid type.
+                </div>
+              </div>
+            </div>
+              <div class="row data-row">
+                <div class="col-md-6 mb-3">
+                  <label for="type">Department</label>
+                  <select name="department" class="custom-select d-block w-100" id="type" required="">
+                      <option value="">Choose...</option>
+                      <option>CSE</option>
+                      <option>ISE</option>
+                      <option>CSE</option>
+                      <option>ISE</option>
+                      <option>ECE</option>
+                      <option>TCE</option>
+                      <option>EEE</option>
+                      <option>CIV</option>
+                      <option>MECH</option>
+                      <option>MBA</option>
+                      <option>MCA</option>
+                      <option>Basic Sciences</option>
+                  </select>
+
+              </div>
+            <div class="col-md-6 mb-3">
+                <label>Submission Date</label>
+                <input type="date" class="form-control" name="filterDate">
+                <div class="invalid-feedback">
+                  Please select a valid date.
+                </div>
+            </div>
+            </div>
+            <label for="description">Description (Optional)</label>
+            <div name="description" id="editor">
+              <p>This is the editor content.</p>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block buttons" type="submit">Submit</button>
+            <button class="btn btn-secondary btn-lg btn-block buttons" type="reset">Reset</button>
+          </div>
+    </div>
+    </form>
+    </section>
+
+  </div>
+  </div>
+  <!-- JavaScript for ckeditor -->
+
+  <script src="/ckeditor.js"></script>
+  <script>
+    CKEDITOR.replace('editor');
+  </script>
+
+  <!-- Locally Hosted Javascript -->
+
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/popper.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/main.js"></script>
+  <script src="../../js/form-validation.js"></script>
+  <script>
+    CKEDITOR.replace('editor');
+    const element = CKEDITOR.document.getById('editor');
+
+    function submitForm(e) {
+      var formData = new FormData(placementsForm);
+      const description = element.getText();
+      console.log(description);
+      formData.append("description", description)
+      var object = {};
+      formData.forEach(function (value, key) {
+        object[key] = value;
+      });
+      var json = JSON.stringify(object);
+      console.log(json);
+      fetch("/students/placement", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: json
+      })
+    }
+    placementsForm.addEventListener('submit', (e) => submitForm(e))
+  </script>
+</body>
+
+</html>

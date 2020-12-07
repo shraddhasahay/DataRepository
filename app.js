@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "faculty_module",
+  database: "data_repository",
 });
 connection.connect(function (err) {
   if (!err) {
@@ -98,7 +98,113 @@ app.post("/register", (req, res) => {
   });
 });
 
-// Fields Routes
+
+// Student Routes
+app.get("/students/eventsAttended", (req, res) => {
+  res.render("fields/stu_eventsAttended");
+});
+
+app.post("/students/eventsAttended", (req, res) => {
+  console.log(req.body);
+  connection.query("INSERT INTO eventsAttended SET ?", req.body, function (
+    error,
+    results,
+    fields
+  ) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Data Added Successfully!");
+    }
+  });
+});
+
+
+app.get("/students/Awards", (req, res) => {
+  res.render("fields/stu_awards");
+});
+
+//Route for Report Generation
+app.get("/students/search", (req, res) => {
+  res.render('stu_search');
+});
+
+//Filter Data and Print
+app.post("/students/search", (req, res) => {
+  let event  = req.body.event;
+  let fromDate = req.body.fromDate;
+  let toDate = req.body.toDate;
+  let dept = req.body.dep.toUpperCase();
+  let COE = req.body.COE;
+  console.log(req.body);
+  //All should  look for all the table in database
+  let sql = `Select * from ${event} Where (filterDate BETWEEN ? AND ?)`;
+  connection.query(sql,[fromDate,toDate],(err,result,fields)=>{
+    if(err) throw err;
+    console.log(result);
+    let data = [];
+    result.forEach((res,i)=>{
+      if(res.department == null){
+        res.department = "NULL"
+      }
+      if(req.body.details == "false"){
+        delete res.description;
+      }
+      delete res.id;
+      if((((res.department == "NULL") || (dept=='ALL')  || (res.department == dept))&&((COE=='All') || (COE == res.COE)))){
+        res.filterDate = res.filterDate.toDateString();
+        data.push(res);
+      }
+    })
+    res.render('stu_report', {
+      title: 'Student Report',
+      data: data
+    });
+  })
+
+});
+
+app.post("/students/Awards", (req, res) => {
+  console.log(req.body);
+  connection.query("INSERT INTO Awards SET ?", req.body, function (
+    error,
+    results,
+    fields
+  ) {
+    if (error) {
+      console.log(error);
+    } else {
+      // res.send({
+      //   // code: 200,
+      //   // message: "Added successfully!"
+      // });
+      console.log("Data Added Successfully!");
+    }
+  });
+});
+
+app.get("/students/placement", (req, res) => {
+  res.render("fields/stu_placement");
+});
+
+app.post("/students/placement", (req, res) => {
+  console.log(req.body);
+  connection.query("INSERT INTO placement SET ?", req.body, function (
+    error,
+    results,
+    fields
+  ) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Data Added Successfully!");
+    }
+  });
+});
+
+
+
+// Faculty Routes
 // Faculty Events Attended Page
 app.get("/faculty/eventsAttended", (req, res) => {
   res.render("fields/fac_eventsAttended");
@@ -106,7 +212,7 @@ app.get("/faculty/eventsAttended", (req, res) => {
 
 app.post("/faculty/eventsAttended", (req, res) => {
   console.log(req.body);
-  connection.query("INSERT INTO eventsAttended SET ?", req.body, function (
+  connection.query("INSERT INTO eventsAttended_fac SET ?", req.body, function (
     error,
     results,
     fields
@@ -135,7 +241,7 @@ app.get("/faculty/clubActivities", (req, res) => {
 
 app.post("/faculty/clubActivities", (req, res) => {
   console.log(req.body);
-  connection.query("INSERT INTO clubActivities SET ?", req.body, function (
+  connection.query("INSERT INTO clubActivities_fac SET ?", req.body, function (
     error,
     results,
     fields
@@ -162,7 +268,7 @@ app.get("/faculty/Awards", (req, res) => {
 
 app.post("/faculty/Awards", (req, res) => {
   console.log(req.body);
-  connection.query("INSERT INTO Awards SET ?", req.body, function (
+  connection.query("INSERT INTO Awards_fac SET ?", req.body, function (
     error,
     results,
     fields
@@ -189,7 +295,7 @@ app.get("/faculty/search", (req, res) => {
 
 //Filter Data and Print
 app.post("/faculty/search", (req, res) => {
-  let event  = req.body.event;
+  let event  = req.body.event+"_fac";
   let fromDate = req.body.fromDate;
   let toDate = req.body.toDate;
   let dept = req.body.dep.toUpperCase();
@@ -223,8 +329,8 @@ app.post("/faculty/search", (req, res) => {
         delete res.description;
       }
       delete res.id;
+      delete res.filterDate;
       if((((res.department == "NULL") || (dept=='ALL')  || (res.department == dept))&&((COE=='All') || (COE == res.COE)))){
-        res.filterDate = res.filterDate.toDateString();
         data.push(res);
       }
     })

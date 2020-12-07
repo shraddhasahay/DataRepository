@@ -141,7 +141,7 @@
               </div>
               <div class="col-md-6 mb-3">
                 <label for="Salary">Website</label>
-                <input type="url" name="website" class="form-control" id="Salary" placeholder="" value="" required="">
+                <input type="text" name="website" class="form-control" id="Salary" placeholder="" value="" required="">
               </div>
               <div class="col-md-6 mb-3">
                 <label for="date">End Date</label>
@@ -279,7 +279,8 @@
                 }else{
                   day = 30;
                 }
-                object.filterDate = new Date(year,month,day).toDateString();
+                month++;
+                object.filterDate = year.toString()+"-"+month.toString()+"-"+day.toString();
                 var json = JSON.stringify(object);
 
 
