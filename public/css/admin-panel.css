@@ -407,7 +407,7 @@ h3 {
 
 .h4,
 h4 {
-    font-size: 1.5rem
+    font-size: 1.5rem;
 }
 
 .h5,
@@ -12577,4 +12577,17 @@ body.sidebar-toggled footer.sticky-footer {
 }
 #img-logo{
     margin: 0px 5% 0px 2%;
+}
+.data-row{
+    margin-top: 2%;
+  }
+
+/* Submit and Reset buttons */
+.buttons{
+    margin-top: 2%;
+}
+.title{
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+    color: #264653;
 }

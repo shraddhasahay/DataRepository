@@ -8358,3 +8358,17 @@ body{
 .data-row{
   margin-top: 2%;
 }
+
+/* Reoprt Button */
+
+/* For Desktop */
+.report{
+  text-align: right;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="report"] {
+    text-align: left;
+  }
+}
