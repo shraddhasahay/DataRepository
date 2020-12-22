@@ -26,6 +26,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
+app.use('/', require('./routes/admin'));
+
 app.get("/", (req, res) => {
   res.render("home");
 });
