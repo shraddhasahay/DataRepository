@@ -27,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/', require('./routes/admin'));
+app.use('/',require('./routes/student_module'))
 
 app.get("/", (req, res) => {
   res.render("home");
@@ -102,108 +103,6 @@ app.post("/register", (req, res) => {
 
 
 // Student Routes
-app.get("/students/eventsAttended", (req, res) => {
-  res.render("fields/stu_eventsAttended");
-});
-
-app.post("/students/eventsAttended", (req, res) => {
-  console.log(req.body);
-  connection.query("INSERT INTO eventsAttended SET ?", req.body, function (
-    error,
-    results,
-    fields
-  ) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Data Added Successfully!");
-    }
-  });
-});
-
-
-app.get("/students/Awards", (req, res) => {
-  res.render("fields/stu_awards");
-});
-
-//Route for Report Generation
-app.get("/students/search", (req, res) => {
-  res.render('stu_search');
-});
-
-//Filter Data and Print
-app.post("/students/search", (req, res) => {
-  let event  = req.body.event;
-  let fromDate = req.body.fromDate;
-  let toDate = req.body.toDate;
-  let dept = req.body.dep.toUpperCase();
-  let COE = req.body.COE;
-  console.log(req.body);
-  //All should  look for all the table in database
-  let sql = `Select * from ${event} Where (filterDate BETWEEN ? AND ?)`;
-  connection.query(sql,[fromDate,toDate],(err,result,fields)=>{
-    if(err) throw err;
-    console.log(result);
-    let data = [];
-    result.forEach((res,i)=>{
-      if(res.department == null){
-        res.department = "NULL"
-      }
-      if(req.body.details == "false"){
-        delete res.description;
-      }
-      delete res.id;
-      if((((res.department == "NULL") || (dept=='ALL')  || (res.department == dept))&&((COE=='All') || (COE == res.COE)))){
-        res.filterDate = res.filterDate.toDateString();
-        data.push(res);
-      }
-    })
-    res.render('stu_report', {
-      title: 'Student Report',
-      data: data
-    });
-  })
-
-});
-
-app.post("/students/Awards", (req, res) => {
-  console.log(req.body);
-  connection.query("INSERT INTO Awards SET ?", req.body, function (
-    error,
-    results,
-    fields
-  ) {
-    if (error) {
-      console.log(error);
-    } else {
-      // res.send({
-      //   // code: 200,
-      //   // message: "Added successfully!"
-      // });
-      console.log("Data Added Successfully!");
-    }
-  });
-});
-
-app.get("/students/placement", (req, res) => {
-  res.render("fields/stu_placement");
-});
-
-app.post("/students/placement", (req, res) => {
-  console.log(req.body);
-  connection.query("INSERT INTO placement SET ?", req.body, function (
-    error,
-    results,
-    fields
-  ) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Data Added Successfully!");
-    }
-  });
-});
-
 
 
 // Faculty Routes
@@ -303,19 +202,6 @@ app.post("/faculty/search", (req, res) => {
   let dept = req.body.dep.toUpperCase();
   let COE = req.body.COE;
   console.log(dept)
-  // var fltrEType = req.body.fltrEType;
-  // var fltrAddedBy = req.body.fltrAddedBy;
-  // var fltrSDate = req.body.fltrSDate;
-  // var fltrEdate = req.body.fltrEdate;
-  // var sql = 'SELECT * FROM eventsAttended where activityType = ?';
-  // connection.query(sql,[fltrEType], function (err, data, fields) {
-  //   if (err) throw err;
-  //   res.render('fac_report', {
-  //     title: 'Faculty Report',
-  //     userData: data
-  //   });
-  // });
-  // console.log(fromDate,toDate)
   console.log(req.body);
   let sql = `Select * from ${event} Where (filterDate BETWEEN ? AND ?)`;
 
