@@ -297,6 +297,10 @@ app.get("/faculty/search", (req, res) => {
 
 //Filter Data and Print
 app.post("/faculty/search", (req, res) => {
+  if(req.body.event=='all'){
+    res.json({message: "All field is under development"})
+    return;
+  }
   let event  = req.body.event+"_fac";
   let fromDate = req.body.fromDate;
   let toDate = req.body.toDate;
@@ -336,6 +340,10 @@ app.post("/faculty/search", (req, res) => {
         data.push(res);
       }
     })
+    if(data.length == 0){
+      res.json({error: "the data is empty based on your search results"});
+      return;
+    }
     res.render('fac_report', {
       title: 'Faculty Report',
       data: data
