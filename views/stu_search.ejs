@@ -2,7 +2,25 @@
 <div class="wrapper d-flex align-items-stretch">
 
     <!-- Side Panel -->
-    <%- include('partials/side-panel.ejs') %>
+    <nav id="sidebar">
+        <div class="p-4 pt-5">
+            <a href="#" class="img logo rounded-circle mb-5"
+                style="background-image: url(images/logo.jpg);border:10px #008080"></a>
+            <header id="stuModule-text"><B>STUDENT MODULE</B></header>
+            <ul class="list-unstyled components mb-5">
+                <li class>
+                    <a href="/students/awards">Awards & Achievements</a>
+                </li>
+                <li>
+                    <a href="/students/eventsAttended">Club Activities</a>
+                </li>
+
+                <li>
+                    <a href="/students/placement">Placement</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <!-- Page Content -->
     <div id="content" class="p-4 p-md-5">
@@ -15,32 +33,11 @@
 
         <section id="form">
 
-            <form action="/students/search" id="facultyReport" method="post">
+            <form action="/students/search" method="post">
                 <!-- <form actionid="studentReport" class="needs-validation" novalidate=""> -->
                 <div class="container-fluid">
-                    <h4 class="mb-3">Faculty Report</h4>
+                    <h4 class="mb-3">Student Report</h4>
                     <div class="row data-row">
-                        <!-- <div class="col-md-6 mb-3">
-                            <label for="Event">Select Event</label>
-                            <select class="custom-select d-block w-100" name="fltrEType">
-                                <option value="">Choose...</option>
-                                <option value="Conference">Conference</option>
-                                <option value="Expert Lecture">Expert Lecture</option>
-                                <option value="FDP">FDP</option>
-                                <option value="Guest Lecture">Guest Lecture</option>
-                                <option value="Industry visit">Industry visit</option>
-                                <option value="NCC">NCC</option>
-                                <option value="NSS">NSS</option>
-                                <option value="Placement Talk">Placement Talk</option>
-                                <option value="Seminars">Seminars</option>
-                                <option value="Webinars">Webinars</option>
-                                <option value="Symposium">Symposium</option>
-                                <option value="Training Programme">Training Programme</option>
-                                <option value="Workshops">Workshops</option>
-                                <option value="Invited Talk">Invited Talk</option>
-                                <option value="others">Others</option>
-                            </select>
-                        </div> -->
 
                         <div class="col-md-12 mb-3">
                             <label>Event</label>
@@ -97,20 +94,22 @@
                                 <option value="">Choose...</option>
                                 <option value="All">All</option>
                                 <option value="Additive Manufacturing">Additive Manufacturing</option>
-                                <option value ="Data-Driven Internet of Things">Data-Driven Internet of Things</option>
+                                <option value="Data-Driven Internet of Things">Data-Driven Internet of Things</option>
                                 <option value="Integrated Circuits">Integrated Circuits</option>
                                 <option value="Intelligent Energy Systems">Intelligent Energy Systems</option>
-                                <option value="Intelligent Human Computer Interaction">Intelligent Human Computer Interaction</option>
-                                <option value="Machine Intelligence and Bigdata">Machine Intelligence and Bigdata</option>
+                                <option value="Intelligent Human Computer Interaction">Intelligent Human Computer
+                                    Interaction</option>
+                                <option value="Machine Intelligence and Bigdata">Machine Intelligence and Bigdata
+                                </option>
                                 <option value="Material Sciences">Material Sciences</option>
                                 <option value="Metallurgical Engineering">Metallurgical Engineering</option>
                                 <option value="Natural Resource Management">Natural Resource Management</option>
-                                <option value ="Sensors and Nanoelectronics">Sensors and Nanoelectronics</option>
+                                <option value="Sensors and Nanoelectronics">Sensors and Nanoelectronics</option>
                                 <option value="Signal Processing">Signal Processing </option>
                                 <option value="Financial Markets">Financial markets</option>
                                 <option value="Intelligent Robotics System">Intelligent robotics system</option>
                                 <option value="Embedded System">Embedded system</option>
-                                <option value ="Modeling of Dynamic Systems">Modeling of dynamic systems</option>
+                                <option value="Modeling of Dynamic Systems">Modeling of dynamic systems</option>
                             </select>
                         </div>
 
