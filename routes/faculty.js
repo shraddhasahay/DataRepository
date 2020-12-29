@@ -2,14 +2,6 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../configs/DBConnection');
 
-
-
-//Faculty Routes
-// Faculty Events Attended Page
-router.get("/faculty/eventsAttended", (req, res) => {
-    res.render("fields/fac_eventsAttended");
-});
-
 router.post("/faculty/eventsAttended", (req, res) => {
     console.log(req.body);
     connection.query("INSERT INTO eventsAttended_fac SET ?", req.body, function (
@@ -36,12 +28,6 @@ router.post("/faculty/eventsAttended", (req, res) => {
 });
 
 
-
-// Faculty Club Activities Page
-router.get("/faculty/clubActivities", (req, res) => {
-    res.render("fields/fac_clubActivities");
-});
-
 router.post("/faculty/clubActivities", (req, res) => {
     console.log(req.body);
     connection.query("INSERT INTO clubActivities_fac SET ?", req.body, function (
@@ -67,10 +53,7 @@ router.post("/faculty/clubActivities", (req, res) => {
     });
 });
 
-// Faculty Awards Page
-router.get("/faculty/Awards", (req, res) => {
-    res.render("fields/fac_awards");
-});
+
 
 router.post("/faculty/Awards", (req, res) => {
     console.log(req.body);
@@ -97,10 +80,7 @@ router.post("/faculty/Awards", (req, res) => {
     });
 });
 
-//Route for Report Generation
-router.get("/faculty/search", (req, res) => {
-    res.render('fac_search');
-});
+
 
 //Filter Data and Print
 router.post("/faculty/search", (req, res) => {
