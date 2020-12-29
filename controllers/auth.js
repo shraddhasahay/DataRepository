@@ -1,5 +1,25 @@
 const connection = require('../configs/DBConnection');
 
+exports.login = (req, res) => {
+    const {
+        mailid,
+        password
+    } = req.body;
+
+    let errors = [];
+    if (!mailid || !password) {
+        errors.push({
+            msg: 'Please fill in all fields'
+        });
+    }
+
+    if (errors.length > 0) {
+        res.render('login', {
+            errors: errors
+        });
+    }
+}
+
 exports.register = (req, res) => {
     const {
         id,

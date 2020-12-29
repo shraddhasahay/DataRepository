@@ -49,76 +49,48 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-// Login Page
-app.get("/login", (req, res) => {
-  res.render("login");
-});
 
-app.post("/login", (req, res) => {
-  const {
-    id,
-    password
-  } = req.body;
-  console.log(id, password);
 
-  connection.query("SELECT * FROM Faculty WHERE id = ?", [id], function (
-    error,
-    results,
-    fields
-  ) {
-    if (error) {
-      res.send({
-        code: 400,
-        failed: "error ocurred",
-      });
-    } else {
-      if (results.length > 0) {
-        const comparision = password === results[0].password;
-        if (comparision) {
-          res.send({
-            code: 200,
-            success: "login sucessfull",
-          });
-        } else {
-          res.send({
-            code: 204,
-            success: "Id and password does not match",
-          });
-        }
-      } else {
-        res.send({
-          code: 206,
-          success: "Id does not exits",
-        });
-      }
-    }
-  });
-});
+// app.post("/login", (req, res) => {
+//   const {
+//     id,
+//     password
+//   } = req.body;
+//   console.log(id, password);
 
-// app.get("/register", (req, res) => {
-//   res.render("register");
+//   connection.query("SELECT * FROM Faculty WHERE id = ?", [id], function (
+//     error,
+//     results,
+//     fields
+//   ) {
+//     if (error) {
+//       res.send({
+//         code: 400,
+//         failed: "error ocurred",
+//       });
+//     } else {
+//       if (results.length > 0) {
+//         const comparision = password === results[0].password;
+//         if (comparision) {
+//           res.send({
+//             code: 200,
+//             success: "login sucessfull",
+//           });
+//         } else {
+//           res.send({
+//             code: 204,
+//             success: "Id and password does not match",
+//           });
+//         }
+//       } else {
+//         res.send({
+//           code: 206,
+//           success: "Id does not exits",
+//         });
+//       }
+//     }
+//   });
 // });
-
-// // app.post("/register", (req, res) => {
-// //   connection.query("INSERT INTO Faculty SET ?", req.body, function (
-// //     error,
-// //     results,
-// //     fields
-// //   ) {
-// //     if (error) {
-// //       res.send({
-// //         code: 400,
-// //         failed: "error ocurred",
-// //       });
-// //     } else {
-// //       //   res.send({
-// //       //     code: 200,
-// //       //     success: "user registered sucessfully",
-// //       //   });
-// //       res.redirect("/login");
-// //     }
-// //   });
-// // });
 
 
 // Server Running at port 4000
