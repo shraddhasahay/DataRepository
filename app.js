@@ -3,7 +3,9 @@ const app = express();
 const flash = require('connect-flash');
 const session = require('express-session');
 const connection = require('./configs/DBConnection');
+const passport = require('passport');
 
+require('./configs/passport')(passport);
 // Setting public direction
 app.use(express.static(__dirname + "/public"));
 // Set ejs template
@@ -23,6 +25,9 @@ app.use(session({
   saveUninitialized: true,
 }));
 
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Connect Flash
 
@@ -38,59 +43,13 @@ app.use(function (req, res, next) {
 });
 
 // Routes
-app.use('/', require('./routes/auth'));
+app.use('/', require('./routes/index'));
+app.use('/', require('./routes/user'));
 app.use('/', require('./routes/admin'));
-app.use('/', require('./routes/student_module'));
-app.use('/', require('./routes/faculty_module'));
+app.use('/', require('./routes/student'));
+app.use('/', require('./routes/faculty'));
 
 
-
-app.get("/", (req, res) => {
-  res.render("home");
-});
-
-
-
-// app.post("/login", (req, res) => {
-//   const {
-//     id,
-//     password
-//   } = req.body;
-//   console.log(id, password);
-
-//   connection.query("SELECT * FROM Faculty WHERE id = ?", [id], function (
-//     error,
-//     results,
-//     fields
-//   ) {
-//     if (error) {
-//       res.send({
-//         code: 400,
-//         failed: "error ocurred",
-//       });
-//     } else {
-//       if (results.length > 0) {
-//         const comparision = password === results[0].password;
-//         if (comparision) {
-//           res.send({
-//             code: 200,
-//             success: "login sucessfull",
-//           });
-//         } else {
-//           res.send({
-//             code: 204,
-//             success: "Id and password does not match",
-//           });
-//         }
-//       } else {
-//         res.send({
-//           code: 206,
-//           success: "Id does not exits",
-//         });
-//       }
-//     }
-//   });
-// });
 
 
 // Server Running at port 4000

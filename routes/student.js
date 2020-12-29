@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../configs/DBConnection');
 
-router.get("/students/eventsAttended", (req, res) => {
-    res.render("fields/stu_eventsAttended");
-});
 
 router.post("/students/eventsAttended", (req, res) => {
     console.log(req.body);
@@ -21,15 +18,6 @@ router.post("/students/eventsAttended", (req, res) => {
     });
 });
 
-
-router.get("/students/Awards", (req, res) => {
-    res.render("fields/stu_awards");
-});
-
-//Route for Report Generation
-router.get("/students/search", (req, res) => {
-    res.render('stu_search');
-});
 
 //Filter Data and Print
 router.post("/students/search", (req, res) => {
@@ -93,9 +81,7 @@ router.post("/students/Awards", (req, res) => {
     });
 });
 
-router.get("/students/placement", (req, res) => {
-    res.render("fields/stu_placement");
-});
+
 
 router.post("/students/placement", (req, res) => {
     console.log(req.body);
