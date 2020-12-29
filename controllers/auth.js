@@ -1,24 +1,55 @@
 const connection = require('../configs/DBConnection');
 
 exports.login = (req, res) => {
-    const {
+   
+   const {
         mailid,
         password
     } = req.body;
-
     let errors = [];
-    if (!mailid || !password) {
+       if (!mailid || !password) {
+
         errors.push({
             msg: 'Please fill in all fields'
         });
-    }
-
-    if (errors.length > 0) {
+      if (errors.length > 0) {
         res.render('login', {
             errors: errors
+
         });
     }
+    }
+    else{
+     connection.query('SELECT * FROM faculty WHERE mailid= ?', [mailid], (err,data)=>{
+
+         if (!data || !( password === data[0].password)){
+             errors.push({
+                 msg: 'Email or Password is incorrect'
+             })
+             res.render('login', {
+            errors: errors
+            
+        });
+         }
+
+    
+
+         else
+             {
+                 res.render('home')
+             }
+
+
+     })
+   
+
+
+  
 }
+  }
+
+
+
 
 exports.register = (req, res) => {
     const {
@@ -32,8 +63,7 @@ exports.register = (req, res) => {
     } = req.body;
     // validate required fields
     let errors = [];
-
-
+    //validating email id
     //Check Required Fields
     if (!name || !mailid || !password || !password2 || !id) {
         errors.push({
@@ -46,19 +76,34 @@ exports.register = (req, res) => {
             msg: 'Passwords do not match'
         });
     }
+    connection.query('SELECT mailid FROM faculty WHERE mailid = ?', [mailid], (error, data)=>{
+        if(error){
+            console.log('Email id coud not be found')
+        }
+        if(data.length>0){
+            errors.push({
+            msg: 'Email already exist'
 
+        })
+   }
     if (errors.length > 0) {
         res.render('admin/admin_addUser', {
             errors: errors,
             title: 'Add User'
 
         });
-    } else {
-        res.render('admin/admin_addUser', {
-            success_msg: "User have been added to the database!",
-            title: 'Add User'
-        });
 
     }
-
+      else {
+           connection.query('INSERT INTO faculty SET ? ',{name:name , mailid:mailid , password:password, id: id}, (data)=> {
+       
+        {
+                res.render('admin/admin_addUser',{
+                success_msg: 'User registered successfully',
+                title: 'Add User'
+            });
+        }
+    })
+    }
+})
 }

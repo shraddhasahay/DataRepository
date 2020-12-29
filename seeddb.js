@@ -36,7 +36,7 @@ let seeddb = async ()=>{
         console.log('Faculty Table created successfully');
     })
 
-    sql = 'Create Table Awards_fac(id varchar(255), category varchar(255),department varchar(255), filterDate Date, level varchar(255), eventName varchar(255), awardedBy varchar(255), status varchar(255), date Date, description text, COE varchar(255))';
+    sql = 'Create Table awards_fac(id varchar(255), category varchar(255),department varchar(255), filterDate Date, level varchar(255), eventName varchar(255), awardedBy varchar(255), status varchar(255), date Date, description text, COE varchar(255))';
     db.query(sql, (err,result)=>{
         if(err) throw err;
         console.log('Awards Table created successfully');
@@ -65,7 +65,7 @@ let seeddb = async ()=>{
         console.log('Student Table created successfully');
     })
 
-    sql = 'Create Table Awards(usn varchar(255), category varchar(255),department varchar(255), filterDate Date, level varchar(255), eventName varchar(255), awardedBy varchar(255), status varchar(255), date Date, description text, COE varchar(255))';
+    sql = 'Create Table awards(usn varchar(255), category varchar(255),department varchar(255), filterDate Date, level varchar(255), eventName varchar(255), awardedBy varchar(255), status varchar(255), date Date, description text, COE varchar(255))';
     db.query(sql, (err,result)=>{
         if(err) throw err;
         console.log('Awards Table created successfully');
