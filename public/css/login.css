@@ -7,7 +7,6 @@ body {
 }
 .img-logo{
 	width: 180px;
-
 }
 
 .main-section {
@@ -21,6 +20,7 @@ body {
 	opacity: .8;
 	padding: 0 18px;
 	border-radius: 10px;
+	height: 400px;
 }
 
 .user-img img {
@@ -30,7 +30,7 @@ body {
 
 .user-img {
 	margin-top: -60px;
-	margin-bottom: 45px;
+	margin-bottom: 65px;
 }
 
 .form-group {

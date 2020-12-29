@@ -10614,7 +10614,6 @@ button.bg-dark:hover {
 
 .text-center {
     text-align: center !important
-
 }
 
 @media (min-width:576px) {
@@ -12567,27 +12566,38 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
     width: 100%
 }
-.sidebar-button{
+
+.sidebar-button {
     margin-top: 100px;
 }
-.img-logo{
+
+.img-logo {
     width: 130px;
-   
+
 
 }
-#img-logo{
+
+#img-logo {
     margin: 0px 5% 0px 2%;
 }
-.data-row{
-    margin-top: 2%;
-  }
 
-/* Submit and Reset buttons */
-.buttons{
+.data-row {
     margin-top: 2%;
 }
-.title{
+
+/* Submit and Reset buttons */
+.submit-button {
+    margin-top: 5%;
+}
+
+.title {
     line-height: 1.5;
     font-family: 'Montserrat', sans-serif;
     color: #264653;
+}
+
+/* Mandatory Fields */
+.required:after {
+    content: " *";
+    color: red;
 }

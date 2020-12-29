@@ -1,13 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var mysql = require("mysql");
-
-var connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "data_repository",
-});
+const connection = require('../configs/DBConnection');
 
 router.get("/students/eventsAttended", (req, res) => {
     res.render("fields/stu_eventsAttended");
