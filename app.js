@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const flash = require('connect-flash');
@@ -49,8 +50,20 @@ app.use('/', require('./routes/admin'));
 app.use('/', require('./routes/student'));
 app.use('/', require('./routes/faculty'));
 
+//Create Default admin
 
-
+connection.query('SELECT mailid FROM faculty WHERE mailid = ?', [process.env.ADMIN_MAIL], (err, data) => {
+  if (err) {
+    console.log(err);
+  }
+  if (!data.length) {
+    connection.query('INSERT INTO faculty SET ? ', {
+      id: process.env.ADMIN_ID,
+      mailid: process.env.ADMIN_MAIL,
+      password: process.env.ADMIN_PASSWORD
+    });
+  }
+});
 
 // Server Running at port 4000
 app.listen("4000", () => {
