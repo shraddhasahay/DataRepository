@@ -1,20 +1,8 @@
 const express = require("express");
 const app = express();
-
-var mysql = require("mysql");
-var connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "data_repository",
-});
-connection.connect(function (err) {
-  if (!err) {
-    console.log("Database is connected ...");
-  } else {
-    console.log("Error connecting database ...");
-  }
-});
+const flash = require('connect-flash');
+const session = require('express-session');
+const connection = require('./configs/DBConnection');
 
 // Setting public direction
 app.use(express.static(__dirname + "/public"));
@@ -23,11 +11,39 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/node_modules/ckeditor"));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+  extended: true
+}));
+
+//Express Session
+
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true,
+}));
+
+
+//Connect Flash
+
+app.use(flash());
+
+//Global Vars
+
+app.use(function (req, res, next) {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error = req.flash('error');
+  next();
+});
 
 // Routes
+app.use('/', require('./routes/auth'));
 app.use('/', require('./routes/admin'));
-app.use('/',require('./routes/student_module'))
+app.use('/', require('./routes/student_module'));
+app.use('/', require('./routes/faculty_module'));
+
+
 
 app.get("/", (req, res) => {
   res.render("home");
@@ -39,7 +55,10 @@ app.get("/login", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  const { id, password } = req.body;
+  const {
+    id,
+    password
+  } = req.body;
   console.log(id, password);
 
   connection.query("SELECT * FROM Faculty WHERE id = ?", [id], function (
@@ -76,168 +95,31 @@ app.post("/login", (req, res) => {
   });
 });
 
-app.get("/register", (req, res) => {
-  res.render("register");
-});
+// app.get("/register", (req, res) => {
+//   res.render("register");
+// });
 
-app.post("/register", (req, res) => {
-  connection.query("INSERT INTO Faculty SET ?", req.body, function (
-    error,
-    results,
-    fields
-  ) {
-    if (error) {
-      res.send({
-        code: 400,
-        failed: "error ocurred",
-      });
-    } else {
-      //   res.send({
-      //     code: 200,
-      //     success: "user registered sucessfully",
-      //   });
-      res.redirect("/login");
-    }
-  });
-});
+// // app.post("/register", (req, res) => {
+// //   connection.query("INSERT INTO Faculty SET ?", req.body, function (
+// //     error,
+// //     results,
+// //     fields
+// //   ) {
+// //     if (error) {
+// //       res.send({
+// //         code: 400,
+// //         failed: "error ocurred",
+// //       });
+// //     } else {
+// //       //   res.send({
+// //       //     code: 200,
+// //       //     success: "user registered sucessfully",
+// //       //   });
+// //       res.redirect("/login");
+// //     }
+// //   });
+// // });
 
-
-// Student Routes
-
-
-// Faculty Routes
-// Faculty Events Attended Page
-app.get("/faculty/eventsAttended", (req, res) => {
-  res.render("fields/fac_eventsAttended");
-});
-
-app.post("/faculty/eventsAttended", (req, res) => {
-  console.log(req.body);
-  connection.query("INSERT INTO eventsAttended_fac SET ?", req.body, function (
-    error,
-    results,
-    fields
-  ) {
-    if (error) {
-      res.send({
-        code: 400,
-        failed: "error ocurred",
-      });
-    } else {
-      //   res.send({
-      //     code: 200,
-      //     success: "user registered sucessfully",
-      //   });
-      res.send({ code: 200, message: "Added successfully!" });
-    }
-  });
-});
-
-
-
-// Faculty Club Activities Page
-app.get("/faculty/clubActivities", (req, res) => {
-  res.render("fields/fac_clubActivities");
-});
-
-app.post("/faculty/clubActivities", (req, res) => {
-  console.log(req.body);
-  connection.query("INSERT INTO clubActivities_fac SET ?", req.body, function (
-    error,
-    results,
-    fields
-  ) {
-    if (error) {
-      res.send({
-        code: 400,
-        failed: "error ocurred",
-      });
-    } else {
-      //   res.send({
-      //     code: 200,
-      //     success: "user registered sucessfully",
-      //   });
-      res.send({ code: 200, message: "Added successfully!" });
-    }
-  });
-});
-
-// Faculty Awards Page
-app.get("/faculty/Awards", (req, res) => {
-  res.render("fields/fac_awards");
-});
-
-app.post("/faculty/Awards", (req, res) => {
-  console.log(req.body);
-  connection.query("INSERT INTO Awards_fac SET ?", req.body, function (
-    error,
-    results,
-    fields
-  ) {
-    if (error) {
-      res.send({
-        code: 400,
-        failed: "error ocurred",
-      });
-    } else {
-      //   res.send({
-      //     code: 200,
-      //     success: "user registered sucessfully",
-      //   });
-      res.send({ code: 200, message: "Added successfully!" });
-    }
-  });
-});
-
-//Route for Report Generation
-app.get("/faculty/search", (req, res) => {
-  res.render('fac_search');
-});
-
-//Filter Data and Print
-app.post("/faculty/search", (req, res) => {
-  if(req.body.event=='all'){
-    res.json({message: "All field is under development"})
-    return;
-  }
-  let event  = req.body.event+"_fac";
-  let fromDate = req.body.fromDate;
-  let toDate = req.body.toDate;
-  let dept = req.body.dep.toUpperCase();
-  let COE = req.body.COE;
-  console.log(dept)
-  console.log(req.body);
-  let sql = `Select * from ${event} Where (filterDate BETWEEN ? AND ?)`;
-
-  connection.query(sql,[fromDate,toDate],(err,result,fields)=>{
-    if(err) throw err;
-    console.log(result);
-    let data = [];
-    result.forEach((res,i)=>{
-      if(res.department == null){
-        res.department = "NULL"
-      }
-      if(req.body.details == "false"){
-        delete res.description;
-      }
-      delete res.id;
-      delete res.filterDate;
-      if((((res.department == "NULL") || (dept=='ALL')  || (res.department == dept))&&((COE=='All') || (COE == res.COE)))){
-        data.push(res);
-      }
-    })
-    if(data.length == 0){
-      res.json({error: "the data is empty based on your search results"});
-      return;
-    }
-    res.render('fac_report', {
-      title: 'Faculty Report',
-      data: data
-    });
-  })
- 
-
-});
 
 // Server Running at port 4000
 app.listen("4000", () => {
