@@ -1,24 +1,55 @@
 const connection = require('../configs/DBConnection');
 
 exports.login = (req, res) => {
-    const {
+   
+   const {
         mailid,
         password
     } = req.body;
-
     let errors = [];
-    if (!mailid || !password) {
+       if (!mailid || !password) {
+
         errors.push({
             msg: 'Please fill in all fields'
         });
-    }
-
-    if (errors.length > 0) {
+      if (errors.length > 0) {
         res.render('login', {
             errors: errors
+
         });
     }
+    }
+    else{
+     connection.query('SELECT * FROM faculty WHERE mailid= ?', [mailid], (err,data)=>{
+
+         if (!data || !( password === data[0].password)){
+             errors.push({
+                 msg: 'Email or Password is incorrect'
+             })
+             res.render('login', {
+            errors: errors
+            
+        });
+         }
+
+    
+
+         else
+             {
+                 res.render('home')
+             }
+
+
+     })
+   
+
+
+  
 }
+  }
+
+
+
 
 exports.register = (req, res) => {
     const {
