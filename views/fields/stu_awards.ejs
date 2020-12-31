@@ -172,29 +172,29 @@
               <div class="col-md-4 mb-3">
                 <label for="type">Department</label>
                 <select name="department" class="custom-select d-block w-100" id="type" required="">
-                    <option value="">Choose...</option>
-                    <option>CSE</option>
-                    <option>ISE</option>
-                    <option>CSE</option>
-                    <option>ISE</option>
-                    <option>ECE</option>
-                    <option>TCE</option>
-                    <option>EEE</option>
-                    <option>CIV</option>
-                    <option>MECH</option>
-                    <option>MBA</option>
-                    <option>MCA</option>
-                    <option>Basic Sciences</option>
+                  <option value="">Choose...</option>
+                  <option>CSE</option>
+                  <option>ISE</option>
+                  <option>CSE</option>
+                  <option>ISE</option>
+                  <option>ECE</option>
+                  <option>TCE</option>
+                  <option>EEE</option>
+                  <option>CIV</option>
+                  <option>MECH</option>
+                  <option>MBA</option>
+                  <option>MCA</option>
+                  <option>Basic Sciences</option>
                 </select>
 
-            </div>
-          <div class="col-md-4 mb-3">
-              <label>Submission Date</label>
-              <input type="date" class="form-control" name="filterDate">
-              <div class="invalid-feedback">
-                Please select a valid date.
               </div>
-          </div>
+              <div class="col-md-4 mb-3">
+                <label>Submission Date</label>
+                <input type="date" class="form-control" name="filterDate">
+                <div class="invalid-feedback">
+                  Please select a valid date.
+                </div>
+              </div>
             </div>
             <label for="description">Description (Optional)</label>
             <div id="editor">
@@ -253,14 +253,14 @@
       });
       var json = JSON.stringify(object);
       console.log(json);
-        fetch("/students/Awards", {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: json
-        })
-      }
+      fetch("/students/Awards", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: json
+      })
+    }
     awardsForm.addEventListener('submit', (e) => submitForm(e))
   </script>
 </body>

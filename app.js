@@ -52,12 +52,12 @@ app.use('/', require('./routes/faculty'));
 
 //Create Default admin
 
-connection.query('SELECT mailid FROM faculty WHERE mailid = ?', [process.env.ADMIN_MAIL], (err, data) => {
+connection.query('SELECT mailid FROM Faculty WHERE mailid = ?', [process.env.ADMIN_MAIL], (err, data) => {
   if (err) {
     console.log(err);
   }
   if (!data.length) {
-    connection.query('INSERT INTO faculty SET ? ', {
+    connection.query('INSERT INTO Faculty SET ? ', {
       id: process.env.ADMIN_ID,
       mailid: process.env.ADMIN_MAIL,
       password: process.env.ADMIN_PASSWORD

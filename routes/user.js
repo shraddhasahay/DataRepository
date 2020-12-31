@@ -35,7 +35,7 @@ router.post('/register', (req, res) => {
             msg: 'Passwords do not match'
         });
     }
-    connection.query('SELECT mailid FROM faculty WHERE mailid = ?', [mailid], (error, data) => {
+    connection.query('SELECT mailid FROM Faculty WHERE mailid = ?', [mailid], (error, data) => {
         if (error) {
             console.log('Email id coud not be found')
         }
@@ -53,7 +53,7 @@ router.post('/register', (req, res) => {
             });
 
         } else {
-            connection.query('INSERT INTO faculty SET ? ', {
+            connection.query('INSERT INTO Faculty SET ? ', {
                 name: name,
                 mailid: mailid,
                 password: password,
