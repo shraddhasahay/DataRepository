@@ -7,6 +7,7 @@ const connection = require('./configs/DBConnection');
 const passport = require('passport');
 
 require('./configs/passport')(passport);
+
 // Setting public direction
 app.use(express.static(__dirname + "/public"));
 // Set ejs template

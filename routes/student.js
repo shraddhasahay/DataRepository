@@ -66,7 +66,7 @@ router.post("/students/search", (req, res) => {
 
 });
 
-router.post("/students/Awards", (req, res) => {
+router.post("/students/awards", (req, res) => {
     console.log(req.body);
     connection.query("INSERT INTO Awards SET ?", req.body, function (
         error,

@@ -5,72 +5,122 @@
   <title>Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+  <div id="content-wrapper" class="d-flex flex-column">
 
-  <div class="wrapper d-flex align-items-stretch">
+    <!-- Main Content -->
+    <div id="content">
+
+      <!-- Topbar -->
+      <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow ">
+        <div id="img-logo" class="nav-item">
+          <img class="img-profile img-logo" src="/img/college-logo.png"></div>
 
 
-    <!-- Page Content  -->
-    <div id="content" class="p-4 p-md-5">
-
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
 
-        <div class="container-fluid">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="images">
-              <img src="img/college-logo.png" width="150" height="90">
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+
+
+          <!-- Nav Item - User Information -->
+          <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span id="home-text">Username</span>
+              <img class="img-profile rounded-circle" src="/img/undraw_profile.svg">
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                Profile
+              </a>
+              <a class="dropdown-item" href="#">
+                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                Settings
+              </a>
+
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
+                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                Logout
+              </a>
             </div>
-            <ul class="nav navbar-nav ml-auto">
+          </li>
 
-              <div class="wrap">
-                <div class="search">
-                  <h2>CMRIT DATA REPOSITORY SYSTEM</h2>
-                </div>
+        </ul>
+
+      </nav>
+
+      <!-- End of Topbar -->
+
+      <div class="container-fluid">
+        <!-- <h4 class="mb-3">DATA REPOSITORY MODULES</h4>
+
+    <label for="description">Choose the repository you want to have access to:</label>
+    <a href="/students/Awards" style="color: white">
+      <button class="btn btn-primary btn-lg btn-block module-buttons" type="submit">STUDENT</button> </a>
+
+    <a href="/faculty/Awards" style="color: white">
+      <button class="btn btn-secondary btn-lg btn-block module-buttons" style="color: white buttons">FACULTY</button>
+    </a> -->
+        <h6 class="heading">Choose the Repository you want to have access to :</h6>
+        <!-- Topic Cards -->
+        <div id="cards_landscape_wrap-2">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <a href="/students/awards">
+                  <div class="card-flyer">
+                    <div class="text-box">
+                      <div class="image-box"><img class="card-img" src="/img/1.png" alt="">
+                      </div>
+                      <div class="text-container">
+                        <h6 class="title">STUDENT MODULE</h6>
+                        <p>Data Repository for Inserting Student Data</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
               </div>
+              <div class="col-lg-6">
+                <a href="/faculty/awards">
 
-              <li class="nav-item active">
-                <a class="nav-link" href="/logout"><i class="fa fa-sign-out fa-2x" aria-hidden="true"
-                    style="color: #008080"></i><b>LOG-OUT</b></a>
-
-              </li>
-            </ul>
+                  <div class="card-flyer">
+                    <div class="text-box">
+                      <div class="image-box">
+                        <img class="card-img" src="/img/2.png" alt="" />
+                      </div>
+                      <div class="text-container">
+                        <h6>FACULTY MODULE</h6>
+                        <p>Data Repository for Inserting Faculty Data</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </nav>
-      <section id="form">
-        <div class="container-fluid">
-          <h4 class="mb-3">DATA REPOSITORY MODULES</h4>
 
-          <label for="description">Choose the repository you want to have access to:</label>
-          <!--div id="editor">
-            <p>This is the editor content.</p>
-        </div-->
-          <a href="/students/Awards" style="color: white">
-            <button class="btn btn-primary btn-lg btn-block module-buttons" type="submit">STUDENT</button> </a>
+      </div>
 
-          <a href="faculty/Awards" style="color: white">
-            <button class="btn btn-secondary btn-lg btn-block module-buttons"
-              style="color: white buttons">FACULTY</button>
-          </a>
-        </div>
-
-      </section>
-
-    </div>
-  </div>
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/popper.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
+      <%- include ("./partials/footer") %>
 </body>
 
 </html>

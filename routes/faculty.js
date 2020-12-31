@@ -55,7 +55,7 @@ router.post("/faculty/clubActivities", (req, res) => {
 
 
 
-router.post("/faculty/Awards", (req, res) => {
+router.post("/faculty/awards", (req, res) => {
     console.log(req.body);
     connection.query("INSERT INTO Awards_fac SET ?", req.body, function (
         error,

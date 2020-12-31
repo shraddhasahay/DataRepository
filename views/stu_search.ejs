@@ -1,136 +1,105 @@
 <%- include('partials/header.ejs') %>
-<div class="wrapper d-flex align-items-stretch">
+<div class="container-fluid">
 
-    <!-- Side Panel -->
-    <nav id="sidebar">
-        <div class="p-4 pt-5">
-            <a href="#" class="img logo rounded-circle mb-5"
-                style="background-image: url(images/logo.jpg);border:10px #008080"></a>
-            <header id="stuModule-text"><B>STUDENT MODULE</B></header>
-            <ul class="list-unstyled components mb-5">
-                <li class>
-                    <a href="/students/awards">Awards & Achievements</a>
-                </li>
-                <li>
-                    <a href="/students/eventsAttended">Club Activities</a>
-                </li>
+    <!-- Data Entry -->
 
-                <li>
-                    <a href="/students/placement">Placement</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <section id="form">
 
-    <!-- Page Content -->
-    <div id="content" class="p-4 p-md-5">
+        <form action="/students/search" method="post">
+            <!-- <form actionid="studentReport" class="needs-validation" novalidate=""> -->
+            <div class="container-fluid">
+                <h4 class="mb-3 title">Student Report</h4>
+                <div class="row data-row">
 
-        <!-- Nav Bar -->
-
-        <%- include('partials/top-nav.ejs') %>
-
-        <!-- Data Entry -->
-
-        <section id="form">
-
-            <form action="/students/search" method="post">
-                <!-- <form actionid="studentReport" class="needs-validation" novalidate=""> -->
-                <div class="container-fluid">
-                    <h4 class="mb-3">Student Report</h4>
-                    <div class="row data-row">
-
-                        <div class="col-md-12 mb-3">
-                            <label>Event</label>
-                            <select class="custom-select d-block w-100" name="event">
-                                <option value="">Choose...</option>
-                                <option value="all">All</option>
-                                <option value="awards">Awards & Achievements</option>
-                                <option value="eventsattended">Events Attended</option>
-                                <option value="clubactivities">Club Activities</option>
-                            </select>
-                        </div>
+                    <div class="col-md-12 mb-3">
+                        <label>Event</label>
+                        <select class="custom-select d-block w-100" name="event">
+                            <option value="">Choose...</option>
+                            <option value="all">All</option>
+                            <option value="awards">Awards & Achievements</option>
+                            <option value="eventsattended">Events Attended</option>
+                            <option value="clubactivities">Club Activities</option>
+                        </select>
                     </div>
-                    <div class="row data-row">
-                        <div class="col-md-6 mb-3">
-                            <label for="fromDate">From Date</label>
-                            <input type="date" name="fromDate" class="form-control">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="toDate">To Date</label>
-                            <input type="date" name="toDate" class="form-control">
-                        </div>
+                </div>
+                <div class="row data-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="fromDate">From Date</label>
+                        <input type="date" name="fromDate" class="form-control">
                     </div>
-                    <div class="row data-row">
-                        <div class="col-md-6 mb-3">
-                            <label for="details">Details Required</label>
-                            <select class="custom-select d-block w-100" name="details">
-                                <option value="">Choose...</option>
-                                <option value="true">Yes</option>
-                                <option value="false">No</option>
-                            </select>
-
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="dept">Departments</label>
-                            <select class="custom-select d-block w-100" name="dep">
-                                <option value="">Choose...</option>
-                                <option value="all">All</option>
-                                <option value="cse">CSE</option>
-                                <option value="ise">ISE</option>
-                                <option value="ece">ECE</option>
-                                <option value="mech">MECH</option>
-                                <option value="civ">CIVIL</option>
-                                <option value="tce">TCE</option>
-                                <option value="mba">MBA</option>
-                                <option value="mca">MCA</option>
-                                <option value="ise">BASIC SCIENCE</option>
-                            </select>
-                        </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="toDate">To Date</label>
+                        <input type="date" name="toDate" class="form-control">
                     </div>
-                    <div class="row data-row">
-                        <div class="col-md-12 mb-3">
-                            <label for="COE">COE</label>
-                            <select class="custom-select d-block w-100" name="COE">
-                                <option value="">Choose...</option>
-                                <option value="All">All</option>
-                                <option value="Additive Manufacturing">Additive Manufacturing</option>
-                                <option value="Data-Driven Internet of Things">Data-Driven Internet of Things</option>
-                                <option value="Integrated Circuits">Integrated Circuits</option>
-                                <option value="Intelligent Energy Systems">Intelligent Energy Systems</option>
-                                <option value="Intelligent Human Computer Interaction">Intelligent Human Computer
-                                    Interaction</option>
-                                <option value="Machine Intelligence and Bigdata">Machine Intelligence and Bigdata
-                                </option>
-                                <option value="Material Sciences">Material Sciences</option>
-                                <option value="Metallurgical Engineering">Metallurgical Engineering</option>
-                                <option value="Natural Resource Management">Natural Resource Management</option>
-                                <option value="Sensors and Nanoelectronics">Sensors and Nanoelectronics</option>
-                                <option value="Signal Processing">Signal Processing </option>
-                                <option value="Financial Markets">Financial markets</option>
-                                <option value="Intelligent Robotics System">Intelligent robotics system</option>
-                                <option value="Embedded System">Embedded system</option>
-                                <option value="Modeling of Dynamic Systems">Modeling of dynamic systems</option>
-                            </select>
-                        </div>
+                </div>
+                <div class="row data-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="details">Details Required</label>
+                        <select class="custom-select d-block w-100" name="details">
+                            <option value="">Choose...</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
 
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="dept">Departments</label>
+                        <select class="custom-select d-block w-100" name="dep">
+                            <option value="">Choose...</option>
+                            <option value="all">All</option>
+                            <option value="cse">CSE</option>
+                            <option value="ise">ISE</option>
+                            <option value="ece">ECE</option>
+                            <option value="mech">MECH</option>
+                            <option value="civ">CIVIL</option>
+                            <option value="tce">TCE</option>
+                            <option value="mba">MBA</option>
+                            <option value="mca">MCA</option>
+                            <option value="ise">BASIC SCIENCE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row data-row">
+                    <div class="col-md-12 mb-3">
+                        <label for="COE">COE</label>
+                        <select class="custom-select d-block w-100" name="COE">
+                            <option value="">Choose...</option>
+                            <option value="All">All</option>
+                            <option value="Additive Manufacturing">Additive Manufacturing</option>
+                            <option value="Data-Driven Internet of Things">Data-Driven Internet of Things</option>
+                            <option value="Integrated Circuits">Integrated Circuits</option>
+                            <option value="Intelligent Energy Systems">Intelligent Energy Systems</option>
+                            <option value="Intelligent Human Computer Interaction">Intelligent Human Computer
+                                Interaction</option>
+                            <option value="Machine Intelligence and Bigdata">Machine Intelligence and Bigdata
+                            </option>
+                            <option value="Material Sciences">Material Sciences</option>
+                            <option value="Metallurgical Engineering">Metallurgical Engineering</option>
+                            <option value="Natural Resource Management">Natural Resource Management</option>
+                            <option value="Sensors and Nanoelectronics">Sensors and Nanoelectronics</option>
+                            <option value="Signal Processing">Signal Processing </option>
+                            <option value="Financial Markets">Financial markets</option>
+                            <option value="Intelligent Robotics System">Intelligent robotics system</option>
+                            <option value="Embedded System">Embedded system</option>
+                            <option value="Modeling of Dynamic Systems">Modeling of dynamic systems</option>
+                        </select>
                     </div>
 
                 </div>
 
-                <button class="btn btn-primary btn-lg btn-block buttons" type="submit">Print</button>
-    </div>
-    </form>
+                <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+                        Search</button>
+                </div>
+            </div>
+        </form>
     </section>
 
-</div>
 </div>
 
 <!-- Report Table -->
 
 <!-- Footer -->
-<script src="../../js/jquery.min.js"></script>
-<script src="../../js/popper.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
+<%- include ("./partials/footer") %>
 
 </body>
 

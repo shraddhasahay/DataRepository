@@ -1,314 +1,259 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Club Activities</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<%- include ("../partials/header") %>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-  </head>
-  <body>
-    
-    <div class="wrapper d-flex align-items-stretch">
-      <nav id="sidebar">
-        <div class="p-4 pt-5">
-          <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/logo.jpg);border:10px #008080"></a>
-          <header id="stuModule-text"><B>FACULTY MODULE</B></header>
-          <ul class="list-unstyled components mb-5">
-            <li>
-              <a href="/faculty/Awards">Awards</a>
-            </li>
-            <li class="active">
-                <a href="#">Club Activities</a>
-            </li>
-            
-            <li>
-              <a href="/faculty/eventsAttended">Events Attended</a>
-            </li>
-             </ul>
+<div class="container-fluid">
+  <section id="form">
+    <form id="clubActivitiesForm" class="needs-validation" novalidate="">
+      <div class="container-fluid">
+
+        <!-- Header Section -->
+
+        <div class="row data-row">
+          <div class="col-md-8 mb-3">
+            <h4 class="mb-3 title">Club Activities Data Entry</h4>
+          </div>
+          <div class="col-md-4 mb-3 report">
+            <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
+                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          </div>
         </div>
-      </nav>
+        <div class="row data-row">
+          <div class="col-md-6 mb-3">
+            <label for="type">Club Name</label>
+            <select name="clubName" class="custom-select d-block w-100" id="type" required="">
+              <option value="">Choose...</option>
+              <option>ACE</option>
+              <option>MindsSpark</option>
+              <option>Hakerearth</option>
+              <option>CyberNauts</option>
+              <option>Moziety</option>
+              <option>Rise</option>
+              <option>Codechef</option>
+              <option>Coding Ninjas</option>
+              <option>Google DSC</option>
+              <option>GLUG</option>
+              <option>Society of Civil Engineers</option>
+              <option>ECO</option>
+              <option>Electronic Technical Association (ETA)</option>
+              <option>TAQ</option>
+              <option> Forum for Electrical & Electronics Engineers(FEEE)</option>
+              <option>ENSAV</option>
+              <option>Society of Mechanical Engineers(SME)</option>
+              <option>PROLAB</option>
+              <option>Technolix</option>
+              <option>Science Club</option>
+              <option>Protocol</option>
+              <option>Finance & Investment Club</option>
+              <option> HR & Communication Club</option>
+              <option>Marketing & Entrepreneurship Club</option>
+              <option>Technotuners</option>
+              <option>Rotract Club</option>
+              <option>Connaissance Club</option>
+              <option>GreeksForGreeks</option>
+            </select>
 
-        <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5">
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <div class="images">
-              <img src="../img/college-logo.png" width="150" height="90">
-        </div>
-              <ul class="nav navbar-nav ml-auto">
-                <div class="wrap">
-   <div class="search">
-      <input type="text" class="searchTerm" placeholder="Search here">
-      <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-     </button>
-   </div>
-</div>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/"><i class="fa fa-home fa-2x" aria-hidden="true" style="color: #008080"></i>Home</a>
-                    
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/logout"><i class="fa fa-sign-out fa-2x" aria-hidden="true" style="color: #008080"></i>Log-Out</a>
-                    
-                </li>
-                
-              </ul>
+            <div class="invalid-feedback">
+              Please select a valid type.
             </div>
           </div>
-        </nav>
-        <div class="container-fluid">
-              <div class="row data-row">
-                <div class="col-md-8 mb-3">
-                  <h4 class="mb-3">Club activities</h4>
-                </div>
-                  <div class="col-md-4 mb-3 report">
-                    <a class="btn btn-dark" href="/faculty/search" role="button">Generate Report</a>
-                    <!-- <button type="button" class="btn btn-dark">Generate Report</button> -->
-                  </div>
-                </div>
-          <form id="clubActivitiesForm" class="needs-validation" novalidate="">
+          <div class="col-md-6 mb-3">
+            <label for="companyName">Topic</label>
+            <input type="text" name="topic" class="form-control" id="companyName" placeholder="" value="" required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="companyName">Resource Person</label>
+            <input type="text" name="resourcePerson" class="form-control" id="companyName" placeholder="" value=""
+              required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="Salary">Designation</label>
+            <input type="text" name="designation" class="form-control" id="Salary" placeholder="" value="" required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="Salary">Company</label>
+            <input type="text" name="company" class="form-control" id="Salary" placeholder="" value="" required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="Salary">Benefit</label>
+            <input type="text" name="benefits" class="form-control" id="Salary" placeholder="" value="" required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="Salary">Event Objective</label>
+            <input type="text" name="objective" class="form-control" id="Salary" placeholder="" value="" required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="Salary">Website</label>
+            <input type="text" name="website" class="form-control" id="Salary" placeholder="" value="" required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="date">End Date</label>
+            <input type="date" name="endDate" class="form-control" id="date" name="date" placeholder="" value=""
+              required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="date">Start Date</label>
+            <input type="date" name="startDate" class="form-control" id="date" name="date" placeholder="" value=""
+              required="">
+          </div>
 
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="type">Club Name</label>
-                <select name="clubName" class="custom-select d-block w-100" id="type" required="">
-                  <option value="">Choose...</option>
-                  <option>ACE</option>
-                  <option>MindsSpark</option>
-                  <option>Hakerearth</option>
-                  <option>CyberNauts</option>
-                  <option>Moziety</option>
-                  <option>Rise</option>
-                  <option>Codechef</option>
-                  <option>Coding Ninjas</option>
-                  <option>Google DSC</option>
-                  <option>GLUG</option>
-                  <option>Society of Civil Engineers</option>
-                  <option>ECO</option>
-                  <option>Electronic Technical Association (ETA)</option>
-                  <option>TAQ</option>
-                  <option> Forum for Electrical & Electronics Engineers(FEEE)</option>
-                  <option>ENSAV</option>
-                  <option>Society of Mechanical Engineers(SME)</option>
-                  <option>PROLAB</option>
-                  <option>Technolix</option>
-                  <option>Science Club</option>
-                  <option>Protocol</option>
-                  <option>Finance & Investment Club</option>
-                  <option> HR & Communication Club</option>
-                  <option>Marketing & Entrepreneurship Club</option>
-                  <option>Technotuners</option>
-                  <option>Rotract Club</option>
-                  <option>Connaissance Club</option>
-                  <option>GreeksForGreeks</option>
-                </select>
-                  
-                <div class="invalid-feedback">
-                  Please select a valid type.
-                </div>
-              </div>
-                <div class="col-md-6 mb-3">
-                <label for="companyName">Topic</label>
-                <input type="text" name="topic" class="form-control" id="companyName" placeholder="" value="" required="">
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="companyName">Resource Person</label>
-                <input type="text" name="resourcePerson" class="form-control" id="companyName" placeholder="" value="" required="">
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="Salary">Designation</label>
-                <input type="text" name="designation" class="form-control" id="Salary" placeholder="" value="" required="">
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="Salary">Company</label>
-                <input type="text" name="company" class="form-control" id="Salary" placeholder="" value="" required="">
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="Salary">Benefit</label>
-                <input type="text" name="benefits" class="form-control" id="Salary" placeholder="" value="" required="">
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="Salary">Event Objective</label>
-                <input type="text" name="objective" class="form-control" id="Salary" placeholder="" value="" required="">
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="Salary">Website</label>
-                <input type="text" name="website" class="form-control" id="Salary" placeholder="" value="" required="">
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="date">End Date</label>
-                <input type="date" name="endDate" class="form-control" id="date" name="date" placeholder="" value="" required="">
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="date">Start Date</label>
-                <input type="date" name="startDate" class="form-control" id="date" name="date" placeholder="" value="" required="">
-              </div>
-              
-              
-              
-              </div>
-              <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="type">Department</label>
-                <select name="department" class="custom-select d-block w-100" id="type" required="">
-                  <option value="">Choose...</option>
-                  <option>CSE</option>
-                  <option>ISE</option>
-                  <option>CSE</option>
-                  <option>ISE</option>
-                  <option>ECE</option>
-                  <option>TCE</option>
-                  <option>EEE</option>
-                  <option>CIV</option>
-                  <option>MECH</option>
-                  <option>MBA</option>
-                  <option>MCA</option>
-                  <option>Basic Sciences</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please select a valid type.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="type">Semester</label>
-                <select name="sem" class="custom-select d-block w-100" id="type" required="">
-                  <option value="">Choose...</option>
-                  <option>I Sem</option>
-                  <option>II Sem</option>
-                  <option>III Sem</option>
-                  <option>IV Sem</option>
-                  <option>V Sem</option>
-                  <option>VI Sem</option>
-                  <option>VII Sem</option>
-                  <option>VIII Sem</option>
-                  <option>All sememster</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please select a valid type.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="Salary">Participant Numbers</label>
-                <input type="number" name="participantNo" class="form-control" id="Salary" placeholder="" value="" required="">
-              </div>
-            <div class="col-md-6 mb-3">
-              <label for="type">COE</label>
-              <select name="COE" class="custom-select d-block w-100" id="type" required="">
-                <option value="">Choose...</option>
-                <option value="Additive Manufacturing">Additive Manufacturing</option>
-                <option value ="Data-Driven Internet of Things">Data-Driven Internet of Things</option>
-                <option value="Integrated Circuits">Integrated Circuits</option>
-                <option value="Intelligent Energy Systems">Intelligent Energy Systems</option>
-                <option value="Intelligent Human Computer Interaction">Intelligent Human Computer Interaction</option>
-                <option value="Machine Intelligence and Bigdata">Machine Intelligence and Bigdata</option>
-                <option value="Material Sciences">Material Sciences</option>
-                <option value="Metallurgical Engineering">Metallurgical Engineering</option>
-                <option value="Natural Resource Management">Natural Resource Management</option>
-                <option value ="Sensors and Nanoelectronics">Sensors and Nanoelectronics</option>
-                <option value="Signal Processing">Signal Processing </option>
-                <option value="Financial Markets">Financial markets</option>
-                <option value="Intelligent Robotics System">Intelligent robotics system</option>
-                <option value="Embedded System">Embedded system</option>
-                <option value ="Modeling of Dynamic Systems">Modeling of dynamic systems</option>
-  
-              </select>
-            </div>
-            <div class="col-md-12">
-              <label for="description">Event Description</label><br>
-              <div name="description" id="editor">
-              <p>This is the editor content.</p>
-            </div>
-           
-          
-            <button class="btn btn-primary btn-lg btn-block buttons" type="submit">Submit</button>  
-            <button class="btn btn-secondary btn-lg btn-block buttons" type="reset">Reset</button>
-          </form>
-          
-    </div>
 
-    </section>
-        
+
+        </div>
+        <div class="row data-row">
+          <div class="col-md-6 mb-3">
+            <label for="type">Department</label>
+            <select name="department" class="custom-select d-block w-100" id="type" required="">
+              <option value="">Choose...</option>
+              <option>CSE</option>
+              <option>ISE</option>
+              <option>CSE</option>
+              <option>ISE</option>
+              <option>ECE</option>
+              <option>TCE</option>
+              <option>EEE</option>
+              <option>CIV</option>
+              <option>MECH</option>
+              <option>MBA</option>
+              <option>MCA</option>
+              <option>Basic Sciences</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid type.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="type">Semester</label>
+            <select name="sem" class="custom-select d-block w-100" id="type" required="">
+              <option value="">Choose...</option>
+              <option>I Sem</option>
+              <option>II Sem</option>
+              <option>III Sem</option>
+              <option>IV Sem</option>
+              <option>V Sem</option>
+              <option>VI Sem</option>
+              <option>VII Sem</option>
+              <option>VIII Sem</option>
+              <option>All sememster</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid type.
+            </div>
+          </div>
+        </div>
+        <div class="row data-row">
+          <div class="col-md-6 mb-3">
+            <label for="Salary">Participant Numbers</label>
+            <input type="number" name="participantNo" class="form-control" id="Salary" placeholder="" value=""
+              required="">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="type">COE</label>
+            <select name="COE" class="custom-select d-block w-100" id="type" required="">
+              <option value="">Choose...</option>
+              <option value="Additive Manufacturing">Additive Manufacturing</option>
+              <option value="Data-Driven Internet of Things">Data-Driven Internet of Things</option>
+              <option value="Integrated Circuits">Integrated Circuits</option>
+              <option value="Intelligent Energy Systems">Intelligent Energy Systems</option>
+              <option value="Intelligent Human Computer Interaction">Intelligent Human Computer Interaction</option>
+              <option value="Machine Intelligence and Bigdata">Machine Intelligence and Bigdata</option>
+              <option value="Material Sciences">Material Sciences</option>
+              <option value="Metallurgical Engineering">Metallurgical Engineering</option>
+              <option value="Natural Resource Management">Natural Resource Management</option>
+              <option value="Sensors and Nanoelectronics">Sensors and Nanoelectronics</option>
+              <option value="Signal Processing">Signal Processing </option>
+              <option value="Financial Markets">Financial markets</option>
+              <option value="Intelligent Robotics System">Intelligent robotics system</option>
+              <option value="Embedded System">Embedded system</option>
+              <option value="Modeling of Dynamic Systems">Modeling of dynamic systems</option>
+
+            </select>
+          </div>
+        </div>
+
+        <label for="description">Club Description</label><br>
+
+        <div id="editor">
+          <p>This is the editor content.</p>
+        </div>
+        <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+            Submit</button>
+        </div>
       </div>
-    </div>
-        <!-- JavaScript for ckeditor -->
-
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-        <script src="http://malsup.github.com/jquery.form.js"></script> 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ==" crossorigin="anonymous"></script>
-        <script src="/ckeditor.js"></script>
-        <script>
-          CKEDITOR.replace( 'editor' );
-            const element = CKEDITOR.document.getById('editor');
-            function submitForm(e){
-              // e.preventDefault()
-              var formData = new FormData(clubActivitiesForm);
-              const description = element.getText();
-              console.log(description);
-              formData.append("description", description)
-              //if (formData.get("activityType") === "others"){
-                //formData.set("activityType", document.querySelector(".other-text").value)
-              //}else {
-                //formData.set("activityType", document.querySelector("select[name='activityType']").value)
-              //}
-              var object = {};
-              let flag=true;
-              formData.forEach(function(value, key){
-                  object[key] = value;
-                  if(value == "")
-                    flag=false;
-              });
-              if(flag){
-                object.filterDate=new Date();
-                let day = object.filterDate.getDate();
-                let month = object.filterDate.getMonth();
-                let year = object.filterDate.getFullYear();
-                if(day<=5){
-                  day=30;
-                  month = month==0? 11: month-1;
-                  if(month==11){
-                    year--;
-                  }
-                }else{
-                  day = 30;
-                }
-                month++;
-                object.filterDate = year.toString()+"-"+month.toString()+"-"+day.toString();
-                var json = JSON.stringify(object);
+    </form>
 
 
-                fetch("/faculty/clubActivities", {
-                method: "POST",
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: json
-              })
-              }else{
-                alert('Please fill required fields')
-              }
-              
-            }
 
-            clubActivitiesForm.addEventListener('submit', (e) => submitForm(e))
-        </script>
+  </section>
 
-        <!-- Javascript for Text Box -->
-          <script src="/js/textbox.js"></script>
+</div>
 
-  <!-- Locally Hosted Javascript -->
+<!-- Footer -->
 
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/popper.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/main.js"></script>
-  <script src="../js/form-validation.js"></script>
-  </body>
+
+<%- include ("../partials/footer") %>
+<!-- JavaScript for ckeditor -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
+  integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
+  crossorigin="anonymous"></script>
+
+<script>
+  CKEDITOR.replace('editor');
+  const element = CKEDITOR.document.getById('editor');
+
+  function submitForm(e) {
+    // e.preventDefault()
+    var formData = new FormData(clubActivitiesForm);
+    const description = element.getText();
+    console.log(description);
+    formData.append("description", description)
+    //if (formData.get("activityType") === "others"){
+    //formData.set("activityType", document.querySelector(".other-text").value)
+    //}else {
+    //formData.set("activityType", document.querySelector("select[name='activityType']").value)
+    //}
+    var object = {};
+    let flag = true;
+    formData.forEach(function (value, key) {
+      object[key] = value;
+      if (value == "")
+        flag = false;
+    });
+    if (flag) {
+      object.filterDate = new Date();
+      let day = object.filterDate.getDate();
+      let month = object.filterDate.getMonth();
+      let year = object.filterDate.getFullYear();
+      if (day <= 5) {
+        day = 30;
+        month = month == 0 ? 11 : month - 1;
+        if (month == 11) {
+          year--;
+        }
+      } else {
+        day = 30;
+      }
+      month++;
+      object.filterDate = year.toString() + "-" + month.toString() + "-" + day.toString();
+      var json = JSON.stringify(object);
+
+
+      fetch("/faculty/clubActivities", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: json
+      })
+    } else {
+      alert('Please fill required fields')
+    }
+
+  }
+
+  clubActivitiesForm.addEventListener('submit', (e) => submitForm(e))
+</script>
+</body>
+
 </html>
