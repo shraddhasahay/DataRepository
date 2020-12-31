@@ -18,7 +18,7 @@ module.exports = (passport) => {
                 });
             }
 
-            connection.query('SELECT * FROM faculty WHERE mailid= ?', [mailid], function (err, rows) {
+            connection.query('SELECT * FROM Faculty WHERE mailid= ?', [mailid], function (err, rows) {
                 // console.log(rows);
 
                 // if (err) return done(req.flash('message', err));
@@ -52,7 +52,7 @@ module.exports = (passport) => {
 
     passport.deserializeUser(function (mailid, done) {
 
-        connection.query('SELECT * FROM faculty WHERE mailid= ?', [mailid], function (err, rows) {
+        connection.query('SELECT * FROM Faculty WHERE mailid= ?', [mailid], function (err, rows) {
 
             done(err, rows[0]);
 
