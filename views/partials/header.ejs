@@ -1,13 +1,209 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-  	<title>Awards & Achievement</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-  </head>
-  <body>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Data Repository</title>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+
+                <div class="sidebar-brand-icon">
+
+                    <%if (module==='Student') {%>
+                    <i class="fas fa-user-graduate"></i>
+                    <% } else { %>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <% } %>
+                </div>
+                <div class=" sidebar-brand-text mx-3"><%=module%></div>
+            </a>
+
+
+            <!-- Nav Item - Dashboard -->
+
+            <!-- Render only on Student Module -->
+
+            <%if (module==='Student') {%>
+            <li <% if (title === 'Awards') { %> class="nav-item active" <% } else { %> class="nav-item" <% } %>>
+                <a class="nav-link" href="/students/Awards">
+                    <i class="fas fa-trophy"></i>
+                    <span>Awards</span></a>
+            </li>
+
+
+
+            <li <% if (title === 'Placement') { %> class="nav-item active" <% } else { %> class="nav-item" <% } %>>
+                <a class="nav-link" href="/students/placement">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Placement</span></a>
+            </li>
+            <li <% if (title === 'Events') { %> class="nav-item active" <% } else { %> class="nav-item" <% } %>>
+                <a class="nav-link" href="/students/eventsAttended">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Events Attended</span></a>
+            </li>
+            <% } %>
+
+            <!-- Render only on Faculty module -->
+
+            <%if (module==='Faculty') {%>
+            <li <% if (title === 'Awards') { %> class="nav-item active" <% } else { %> class="nav-item" <% } %>>
+                <a class="nav-link" href="/faculty/Awards">
+                    <i class="fas fa-trophy"></i>
+                    <span>Awards</span></a>
+            </li>
+
+            <li <% if (title === 'Club') { %> class="nav-item active" <% } else { %> class="nav-item" <% } %>>
+                <a class="nav-link" href="/faculty/clubActivities">
+                    <i class="fas fa-users"></i>
+                    <span>Club Activities</span></a>
+            </li>
+            <li <% if (title === 'Events') { %> class="nav-item active" <% } else { %> class="nav-item" <% } %>>
+                <a class="nav-link" href="/faculty/eventsAttended">
+                    <i class="fas fa-calendar-check"></i>
+                    <span class="sidebar-text">Events Attended</span></a>
+            </li>
+
+
+            <%} %>
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline sidebar-button">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow ">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <div id="img-logo" class="nav-item">
+                        <img class="img-profile img-logo" src="/img/college-logo.png"></div>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <li class="nav-item home">
+                            <a class="nav-link" href="/"> <i class="fas fa-home home-icon"></i>
+                                <span id="home-text">Home</span>
+                            </a>
+                        </li>
+
+
+                        <!-- Nav Item - User Information -->
+
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <span id="home-text">Username</span>
+                                <img class="img-profile rounded-circle" src="/img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
