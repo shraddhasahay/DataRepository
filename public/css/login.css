@@ -5,7 +5,8 @@ body {
 	background: url(../img/background-2.png) no-repeat center center fixed;
 	background-size: cover;
 }
-.img-logo{
+
+.img-logo {
 	width: 180px;
 }
 
@@ -41,10 +42,14 @@ body {
 	height: 42px;
 	border-radius: 5px;
 	border: 0;
-	font-size: 18px;
 	letter-spacing: 2px;
 	padding-left: 50px;
+	font-size: 0.9rem;
+	font-family: 'Ubuntu', sans-serif;
+	color: grey;
+
 }
+
 
 .form-group::before {
 	font-family: 'Font Awesome\ 5 Free';
@@ -73,7 +78,7 @@ body {
 }
 
 .btn-success {
-	background-color: #1c6288;
+	background-color: #355070;
 	font-size: 19px;
 	border-radius: 5px;
 	padding: 7px 14px;
