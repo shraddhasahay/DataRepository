@@ -72,6 +72,7 @@ router.get("/students/placement", ensureAuthenticated, (req, res) => {
   res.render("fields/stu_placement", {
     title: "Placement",
     module: "Student",
+    Username: req.user.name,
   });
 });
 
