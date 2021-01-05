@@ -35,7 +35,7 @@ router.post("/register", (req, res) => {
     });
   }
   connection.query(
-    "SELECT mailid FROM Faculty WHERE mailid = ?",
+    "SELECT mailid FROM faculty WHERE mailid = ?",
     [mailid],
     (error, data) => {
       if (error) {
