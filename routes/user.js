@@ -9,7 +9,7 @@ router.get("/login", function (req, res) {
 });
 
 router.post("/register", (req, res) => {
-  const {
+  let {
     id,
     name,
     mailid,
@@ -19,6 +19,16 @@ router.post("/register", (req, res) => {
     department,
     phoneNumber,
   } = req.body;
+
+  if (!joiningDate) {
+    joiningDate = null;
+  }
+  if (!department) {
+    department = null;
+  }
+  if (!phoneNumber) {
+    phoneNumber = null;
+  }
   // validate required fields
   let errors = [];
   //validating email id
