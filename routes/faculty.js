@@ -81,7 +81,8 @@ router.post("/faculty/search", (req, res) => {
     });
     return;
   }
-  let event = "fac_"+req.body.event;
+
+  let event = "fac_" + req.body.event;
   let fromDate = req.body.fromDate;
   let toDate = req.body.toDate;
   let dept = req.body.dep.toUpperCase();
