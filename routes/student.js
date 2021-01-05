@@ -19,7 +19,7 @@ router.post("/students/eventsAttended", (req, res) => {
 
 //Filter Data and Print
 router.post("/students/search", (req, res) => {
-  let event = req.body.event;
+  let event = "stu_" + req.body.event;
   let fromDate = req.body.fromDate;
   let toDate = req.body.toDate;
   let dept = req.body.dep.toUpperCase();
