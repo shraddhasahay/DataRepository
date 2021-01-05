@@ -1,173 +1,180 @@
 <%- include ("../partials/header") %>
 
-<!-- Data Entry -->
-<div class="container-fluid">
-  <section id="form">
-    <form id="placementsForm" class="needs-validation" novalidate="">
-      <div class="container-fluid">
-        <div class="row data-row">
-          <div class="col-md-8 mb-3">
-            <h4 class="mb-3 title">Placement Data Entry</h4>
-          </div>
-          <div class="col-md-4 mb-3 report">
-            <a href="/students/search" class="btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
+  <!-- Data Entry -->
+  <div class="container-fluid">
+    <section id="form">
+      <form id="placementsForm" class="needs-validation" novalidate="">
+        <div class="container-fluid">
+          <div class="row data-row">
+            <div class="col-md-8 mb-3">
+              <h4 class="mb-3 title">Placement Data Entry</h4>
+            </div>
+            <div class="col-md-4 mb-3 report">
+              <a href="/students/search" class="btn btn-sm btn-primary shadow-sm"><i
+                  class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            </div>
 
-        </div>
-        <div class="row data-row">
-          <div class="col-md-6 mb-3">
-            <label for="studentName">Student Name</label>
-            <input type="text" name="studentName" class="form-control" id="studentName" placeholder="" value=""
-              required="">
-            <div class="invalid-feedback">
-              Valid student name is required.
+          </div>
+          <div class="row data-row">
+            <div class="col-md-6 mb-3">
+              <label>Student Name</label>
+              <input type="text" name="studentName" class="form-control">
+              <div class="invalid-feedback">
+                Valid Student name is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>USN</label>
+              <input type="text" class="form-control" name="usn">
+              <div class="invalid-feedback">
+                Valid USN is required.
+              </div>
             </div>
           </div>
-          <div class="col-md-6 mb-3">
-            <label for="studentUSN">USN</label>
-            <input type="text" class="form-control" name="usn" id="companyName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid USN is required.
+          <div class="row data-row">
+            <div class="col-md-6 mb-3">
+              <label>Company Name</label>
+              <input type="text" class="form-control" name="companyName">
+              <div class="invalid-feedback">
+                Valid company name is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Salary</label>
+              <input type="text" class="form-control" name="salary">
+              <div class="invalid-feedback">
+                Valid Salary is required.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row data-row">
-          <div class="col-md-6 mb-3">
-            <label for="companyName">Company Name</label>
-            <input type="text" class="form-control" name="companyName" id="companyName" placeholder="" value=""
-              required="">
-            <div class="invalid-feedback">
-              Valid company name is required.
+          <div class="row data-row">
+            <div class="col-md-6 mb-3">
+              <label>Drive Date</label>
+              <input type="date" class="form-control" name="date">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Drive Type</label>
+              <select class="custom-select d-block w-100" name="driveType">
+                <option value="">Choose...</option>
+                <option>On Campus</option>
+                <option>Off Campus</option>
+              </select>
+
+              <div class="invalid-feedback">
+                Placement Drive required.
+              </div>
+            </div>
+
+          </div>
+          <div class="row data-row">
+            <div class="col-md-6 mb-3">
+              <label>Company Type</label>
+              <select class="custom-select d-block w-100" name="companyType">
+                <option value="">Choose...</option>
+                <option>Indian Company</option>
+                <option>Foreign Company</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid company name.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Type</label>
+              <select name="type" class="custom-select d-block w-100" id="type" required="">
+                <option value="">Choose...</option>
+                <option>Placement</option>
+                <option>Internship</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
             </div>
           </div>
-          <div class="col-md-6 mb-3">
-            <label for="Salary">Salary</label>
-            <input type="text" class="form-control" name="salary" id="Salary" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid Salary is required.
+          <div class="row data-row">
+            <div class="col-md-4 mb-3">
+              <label for="type">Department</label>
+              <select name="department" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>CSE</option>
+                <option>ISE</option>
+                <option>ECE</option>
+                <option>TCE</option>
+                <option>EEE</option>
+                <option>CIV</option>
+                <option>MECH</option>
+                <option>MBA</option>
+                <option>MCA</option>
+                <option>Basic Sciences</option>
+              </select>
+
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label>COE</label>
+              <!-- COE -->
+              <%- include ("../partials/coe") %>
+
+                <div class="invalid-feedback">
+                  Please select a valid type.
+                </div>
+
+            </div>
+            <div class="col-md-4 mb-3">
+              <label>Submission Date</label>
+              <input type="date" class="form-control" name="filterDate">
+              <div class="invalid-feedback">
+                Please select a valid date.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row data-row">
-          <div class="col-md-6 mb-3">
-            <label for="evenTdate">Drive Date</label>
-            <input type="date" class="form-control" id="eventDate" name="date" placeholder="" value="" required="">
+          <label for="description">Description (Optional)</label>
+          <div name="description" id="editor">
+            <p>This is the editor content.</p>
           </div>
-          <div class="col-md-6 mb-3">
-            <label for="placementDrive">Drive Type</label>
-            <select class="custom-select d-block w-100" name="driveType" id="driveType" required="">
-              <option value="">Choose...</option>
-              <option>On Campus</option>
-              <option>Off Campus</option>
-            </select>
+          <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+              Submit</button>
 
-            <div class="invalid-feedback">
-              Placement Drive required.
-            </div>
-          </div>
-
-        </div>
-        <div class="row data-row">
-          <div class="col-md-6 mb-3">
-            <label for="company">Company Type</label>
-            <select class="custom-select d-block w-100" name="companyType" id="company" required="">
-              <option value="">Choose...</option>
-              <option>Indian Company</option>
-              <option>Foreign Company</option>
-            </select>
-            <div class="invalid-feedback">
-              Please provide a valid company name.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="type">Type</label>
-            <select name="type" class="custom-select d-block w-100" id="type" required="">
-              <option value="">Choose...</option>
-              <option>Placement</option>
-              <option>Internship</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid type.
-            </div>
           </div>
         </div>
-        <div class="row data-row">
-          <div class="col-md-6 mb-3">
-            <label for="type">Department</label>
-            <select name="department" class="custom-select d-block w-100" id="type" required="">
-              <option value="">Choose...</option>
-              <option>CSE</option>
-              <option>ISE</option>
-              <option>CSE</option>
-              <option>ISE</option>
-              <option>ECE</option>
-              <option>TCE</option>
-              <option>EEE</option>
-              <option>CIV</option>
-              <option>MECH</option>
-              <option>MBA</option>
-              <option>MCA</option>
-              <option>Basic Sciences</option>
-            </select>
-
-          </div>
-          <div class="col-md-6 mb-3">
-            <label>Submission Date</label>
-            <input type="date" class="form-control" name="filterDate">
-            <div class="invalid-feedback">
-              Please select a valid date.
-            </div>
-          </div>
-        </div>
-        <label for="description">Description (Optional)</label>
-        <div name="description" id="editor">
-          <p>This is the editor content.</p>
-        </div>
-        <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
-            Submit</button>
-
-        </div>
-      </div>
-    </form>
-  </section>
+      </form>
+    </section>
 
 
-</div>
+  </div>
 
-<!-- Footer -->
-
-
-<%- include ("../partials/footer") %>
+  <!-- Footer -->
 
 
-<!-- Script for submiting form -->
+  <%- include ("../partials/footer") %>
 
-<script>
-  CKEDITOR.replace('editor');
-  const element = CKEDITOR.document.getById('editor');
 
-  function submitForm(e) {
-    var formData = new FormData(placementsForm);
-    const description = element.getText();
-    console.log(description);
-    formData.append("description", description)
-    var object = {};
-    formData.forEach(function (value, key) {
-      object[key] = value;
-    });
-    var json = JSON.stringify(object);
-    console.log(json);
-    fetch("/students/placement", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: json
-    })
-  }
-  placementsForm.addEventListener('submit', (e) => submitForm(e))
-</script>
-</body>
+    <!-- Script for submiting form -->
 
-</html>
+    <script>
+      CKEDITOR.replace('editor');
+      const element = CKEDITOR.document.getById('editor');
+
+      function submitForm(e) {
+        var formData = new FormData(placementsForm);
+        const description = element.getText();
+        console.log(description);
+        formData.append("description", description)
+        var object = {};
+        formData.forEach(function (value, key) {
+          object[key] = value;
+        });
+        var json = JSON.stringify(object);
+        console.log(json);
+        fetch("/students/placement", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: json
+        })
+      }
+      placementsForm.addEventListener('submit', (e) => submitForm(e))
+    </script>
+    </body>
+
+    </html>

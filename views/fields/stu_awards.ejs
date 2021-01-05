@@ -1,188 +1,203 @@
 <%- include ("../partials/header") %>
 
-<div class="container-fluid">
-  <section id="form">
-    <form id="awardsForm" class="needs-validation" novalidate="">
-      <div class="container-fluid">
+  <div class="container-fluid">
+    <section id="form">
+      <form id="awardsForm" class="needs-validation" novalidate="">
+        <div class="container-fluid">
 
-        <!-- Header Section -->
+          <!-- Header Section -->
 
-        <div class="row data-row">
-          <div class="col-md-8 mb-3">
-            <h4 class="mb-3 title">Student Awards & Achievements Data Entry</h4>
-          </div>
-          <div class="col-md-4 mb-3 report">
-            <a href="/students/search" class="btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
-        </div>
-        <div class="row data-row">
-          <div class="col-md-6 mb-3">
-            <label for="usn">USN</label>
-            <input type="text" name="usn" class="form-control" id="usn" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid USN is required.
+          <div class="row data-row">
+            <div class="col-md-8 mb-3">
+              <h4 class="mb-3 title">Student Awards & Achievements Data Entry</h4>
+            </div>
+            <div class="col-md-4 mb-3 report">
+              <a href="/students/search" class="btn btn-sm btn-primary shadow-sm"><i
+                  class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
             </div>
           </div>
-          <div class="col-md-6 mb-3">
-            <label for="eventName">Event Name</label>
-            <input type="text" name="eventName" class="form-control" id="eventName" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Valid Event Name is required.
+          <div class="row data-row">
+            <div class="col-md-6 mb-3">
+              <label>USN</label>
+              <input type="text" name="usn" class="form-control">
+              <div class="invalid-feedback">
+                Valid USN is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Event Name</label>
+              <input type="text" name="eventName" class="form-control">
+              <div class="invalid-feedback">
+                Valid Event Name is required.
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row data-row">
-          <div class="col-md-6 mb-3">
-            <label for="category">Category</label>
-            <select class="custom-select d-block w-100" name="category" id="selectBox" onChange="changeFunc();">
-              <option value="">Choose...</option>
-              <option value="Hackathon">Hackathon</option>
-              <option value="Competition">Competition</option>
-              <option value="Sports">Sports</option>
-              <option value="Cultural">Cultural</option>
-              <option value="Games">Games</option>
-              <option value="others">Others</option>
-            </select>
-            <input name="category" placeholder="Mention Here..." class="form-control other-text" type="text"
-              style="display: none" id="textboxes">
-            <div class="invalid-feedback">
-              Please select a valid type.
+          <div class="row data-row">
+            <div class="col-md-6 mb-3">
+              <label>Category</label>
+              <select class="custom-select d-block w-100" name="category" id="selectBox" onChange="changeFunc();">
+                <option value="">Choose...</option>
+                <option>Hackathon</option>
+                <option>Competition</option>
+                <option>Sports</option>
+                <option>Cultural</option>
+                <option>Games</option>
+                <option>Others</option>
+              </select>
+              <input name="category" placeholder="Mention Here..." class="form-control other-text" type="text"
+                style="display: none" id="textboxes">
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Level</label>
+              <select name="level" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>Department</option>
+                <option>College</option>
+                <option>Inter-College</option>
+                <option>University</option>
+                <option>State</option>
+                <option>National</option>
+                <option>International</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
             </div>
           </div>
-          <div class="col-md-6 mb-3">
-            <label for="type">Level</label>
-            <select name="level" class="custom-select d-block w-100" id="type" required="">
-              <option value="">Choose...</option>
-              <option>Department</option>
-              <option>College</option>
-              <option>Inter-College</option>
-              <option>University</option>
-              <option>State</option>
-              <option>National</option>
-              <option>International</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid type.
+          <div class="row data-row">
+            <div class="col-md-6 mb-3">
+              <label>Date</label>
+              <input type="date" name="date" class="form-control">
             </div>
-          </div>
-        </div>
-        <div class="row data-row">
-          <div class="col-md-6 mb-3">
-            <label for="date">Date</label>
-            <input type="date" class="form-control" id="date" name="date" placeholder="" value="" required="">
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="status">Status</label>
-            <select name="status" class="custom-select d-block w-100" id="status" required="">
-              <option value="">Choose...</option>
-              <option>1st Place</option>
-              <option>2nd Place</option>
-              <option>3rd Place</option>
-              <option>Runner up</option>
-              <option>Winner</option>
-              <option>Participated</option>
-              <option>Consolation</option>
-            </select>
+            <div class="col-md-6 mb-3">
+              <label for="status">Status</label>
+              <select name="status" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>1st Place</option>
+                <option>2nd Place</option>
+                <option>3rd Place</option>
+                <option>Runner up</option>
+                <option>Winner</option>
+                <option>Participated</option>
+                <option>Consolation</option>
+              </select>
 
-            <div class="invalid-feedback">
-              Status required.
+              <div class="invalid-feedback">
+                Status required.
+              </div>
             </div>
-          </div>
 
-        </div>
-        <div class="row data-row">
-          <div class="col-md-4 mb-3">
-            <label for="awardedBy">Awarded By</label>
-            <input type="text" class="form-control" name="awardedBy" id="awardedBy" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-              Please provide a valid details.
+          </div>
+          <div class="row data-row">
+            <div class="col-md-6 mb-3">
+              <label>Awarded By</label>
+              <input type="text" class="form-control" name="awardedBy">
+              <div class="invalid-feedback">
+                Please provide a valid details.
+              </div>
             </div>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label for="type">Department</label>
-            <select name="department" class="custom-select d-block w-100" id="type" required="">
-              <option value="">Choose...</option>
-              <option>CSE</option>
-              <option>ISE</option>
-              <option>CSE</option>
-              <option>ISE</option>
-              <option>ECE</option>
-              <option>TCE</option>
-              <option>EEE</option>
-              <option>CIV</option>
-              <option>MECH</option>
-              <option>MBA</option>
-              <option>MCA</option>
-              <option>Basic Sciences</option>
-            </select>
+            <div class="col-md-6 mb-3">
+              <label>Department</label>
+              <select name="department" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>CSE</option>
+                <option>ISE</option>
+                <option>ECE</option>
+                <option>TCE</option>
+                <option>EEE</option>
+                <option>CIV</option>
+                <option>MECH</option>
+                <option>MBA</option>
+                <option>MCA</option>
+                <option>Basic Sciences</option>
+              </select>
 
-          </div>
-          <div class="col-md-4 mb-3">
-            <label>Submission Date</label>
-            <input type="date" class="form-control" name="filterDate">
-            <div class="invalid-feedback">
-              Please select a valid date.
             </div>
+
+          </div>
+          <div class="row data-row">
+
+            <div class="col-md-6 mb-3">
+              <label>COE</label>
+              <!-- COE -->
+              <%- include ("../partials/coe") %>
+
+                <div class="invalid-feedback">
+                  Please select a valid type.
+                </div>
+
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Submission Date</label>
+              <input type="date" class="form-control" name="filterDate">
+              <div class="invalid-feedback">
+                Please select a valid date.
+              </div>
+            </div>
+
+
+          </div>
+
+          <label>Description (Optional)</label>
+          <div id="editor">
+            <p>This is the editor content.</p>
+          </div>
+          <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+              Submit</button>
           </div>
         </div>
-        <label for="description">Description (Optional)</label>
-        <div id="editor">
-          <p>This is the editor content.</p>
-        </div>
-        <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
-            Submit</button>
-        </div>
-      </div>
 
 
-    </form>
+      </form>
 
-  </section>
+    </section>
 
-</div>
+  </div>
 
-<!-- Footer -->
-
-
-<%- include ("../partials/footer") %>
+  <!-- Footer -->
 
 
-<!-- Script for submiting form -->
+  <%- include ("../partials/footer") %>
 
-<script>
-  CKEDITOR.replace('editor');
-  const element = CKEDITOR.document.getById('editor');
 
-  function submitForm(e) {
-    // e.preventDefault()
-    var formData = new FormData(awardsForm);
-    const description = element.getText();
-    console.log(description);
-    formData.append("description", description)
-    if (formData.get("category") === "others") {
-      formData.set("category", document.querySelector(".other-text").value)
-    } else {
-      formData.set("category", document.querySelector("select[name='category']").value)
-    }
-    var object = {};
-    let flag = true;
-    formData.forEach(function (value, key) {
-      object[key] = value;
-    });
-    var json = JSON.stringify(object);
-    console.log(json);
-    fetch("/students/awards", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: json
-    })
-  }
-  awardsForm.addEventListener('submit', (e) => submitForm(e))
-</script>
+    <!-- Script for submiting form -->
 
-</body>
+    <script>
+      CKEDITOR.replace('editor');
+      const element = CKEDITOR.document.getById('editor');
 
-</html>
+      function submitForm(e) {
+        // e.preventDefault()
+        var formData = new FormData(awardsForm);
+        const description = element.getText();
+        console.log(description);
+        formData.append("description", description)
+        if (formData.get("category") === "others") {
+          formData.set("category", document.querySelector(".other-text").value)
+        } else {
+          formData.set("category", document.querySelector("select[name='category']").value)
+        }
+        var object = {};
+        let flag = true;
+        formData.forEach(function (value, key) {
+          object[key] = value;
+        });
+        var json = JSON.stringify(object);
+        console.log(json);
+        fetch("/students/awards", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: json
+        })
+      }
+      awardsForm.addEventListener('submit', (e) => submitForm(e))
+    </script>
+
+    </body>
+
+    </html>

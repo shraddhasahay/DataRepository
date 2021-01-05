@@ -40,10 +40,7 @@ router.post("/admin/login", (req, res, next) => {
         return next(err);
       }
       return res.redirect("/admin");
-      //     });
     });
-    //     successRedirect: "/admin",
-    //     failureRedirect: "/admin/login",
   })(req, res, next);
 });
 
