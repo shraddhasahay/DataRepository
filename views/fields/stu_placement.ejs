@@ -17,14 +17,14 @@
           </div>
           <div class="row data-row">
             <div class="col-md-6 mb-3">
-              <label>Student Name</label>
+              <label class="required" class="required">Student Name</label>
               <input type="text" name="studentName" class="form-control">
               <div class="invalid-feedback">
                 Valid Student name is required.
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label>USN</label>
+              <label class="required">USN</label>
               <input type="text" class="form-control" name="usn">
               <div class="invalid-feedback">
                 Valid USN is required.
@@ -33,14 +33,14 @@
           </div>
           <div class="row data-row">
             <div class="col-md-6 mb-3">
-              <label>Company Name</label>
+              <label class="required">Company Name</label>
               <input type="text" class="form-control" name="companyName">
               <div class="invalid-feedback">
                 Valid company name is required.
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label>Salary</label>
+              <label class="required">Salary</label>
               <input type="text" class="form-control" name="salary">
               <div class="invalid-feedback">
                 Valid Salary is required.
@@ -49,11 +49,11 @@
           </div>
           <div class="row data-row">
             <div class="col-md-6 mb-3">
-              <label>Drive Date</label>
+              <label class="required">Drive Date</label>
               <input type="date" class="form-control" name="date">
             </div>
             <div class="col-md-6 mb-3">
-              <label>Drive Type</label>
+              <label class="required">Drive Type</label>
               <select class="custom-select d-block w-100" name="driveType">
                 <option value="">Choose...</option>
                 <option>On Campus</option>
@@ -68,7 +68,7 @@
           </div>
           <div class="row data-row">
             <div class="col-md-6 mb-3">
-              <label>Company Type</label>
+              <label class="required">Company Type</label>
               <select class="custom-select d-block w-100" name="companyType">
                 <option value="">Choose...</option>
                 <option>Indian Company</option>
@@ -79,7 +79,7 @@
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label>Type</label>
+              <label class="required">Type</label>
               <select name="type" class="custom-select d-block w-100" id="type" required="">
                 <option value="">Choose...</option>
                 <option>Placement</option>
@@ -92,7 +92,7 @@
           </div>
           <div class="row data-row">
             <div class="col-md-4 mb-3">
-              <label for="type">Department</label>
+              <label for="type" class="required">Department</label>
               <select name="department" class="custom-select d-block w-100">
                 <option value="">Choose...</option>
                 <option>CSE</option>
@@ -110,7 +110,7 @@
             </div>
 
             <div class="col-md-4 mb-3">
-              <label>COE</label>
+              <label class="required">COE</label>
               <!-- COE -->
               <%- include ("../partials/coe") %>
 
@@ -120,7 +120,7 @@
 
             </div>
             <div class="col-md-4 mb-3">
-              <label>Submission Date</label>
+              <label class="required">Submission Date</label>
               <input type="date" class="form-control" name="filterDate">
               <div class="invalid-feedback">
                 Please select a valid date.

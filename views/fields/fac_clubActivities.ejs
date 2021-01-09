@@ -18,7 +18,7 @@
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label>Club Name</label>
+              <label class="required">Club Name</label>
               <select name="clubName" class="custom-select d-block w-100" id="selectBox" onChange="changeFunc();">
                 <option value="">Choose...</option>
                 <option>ACE</option>
@@ -58,25 +58,25 @@
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label>Topic</label>
+              <label class="required">Topic</label>
               <input type="text" name="topic" class="form-control">
             </div>
           </div>
           <div class="row">
 
             <div class="col-md-6 mb-3">
-              <label>Resource Person</label>
+              <label class="required">Resource Person</label>
               <input type="text" name="resourcePerson" class="form-control">
             </div>
             <div class="col-md-6 mb-3">
-              <label>Designation</label>
+              <label class="required">Designation</label>
               <input type="text" name="designation" class="form-control">
             </div>
           </div>
           <div class="row">
 
             <div class="col-md-6 mb-3">
-              <label>Company</label>
+              <label class="required">Company</label>
               <input type="text" name="company" class="form-control">
             </div>
             <div class="col-md-6 mb-3">
@@ -97,11 +97,11 @@
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label>Start Date</label>
+              <label class="required">Start Date</label>
               <input type="date" name="startDate" class="form-control">
             </div>
             <div class="col-md-6 mb-3">
-              <label>End Date</label>
+              <label class="required">End Date</label>
               <input type="date" name="endDate" class="form-control">
             </div>
 
@@ -109,7 +109,7 @@
           </div>
           <div class="row">
             <div class="col-md-6 mb-3">
-              <label>Department</label>
+              <label class="required">Department</label>
               <select name="department" class="custom-select d-block w-100">
                 <option value="">Choose...</option>
                 <option>CSE</option>
@@ -122,13 +122,14 @@
                 <option>MBA</option>
                 <option>MCA</option>
                 <option>Basic Sciences</option>
+                <option>College Level</option>
               </select>
               <div class="invalid-feedback">
                 Please select a valid type.
               </div>
             </div>
             <div class="col-md-6 mb-3">
-              <label>Semester</label>
+              <label class="required">Semester</label>
               <select name="sem" class="custom-select d-block w-100">
                 <option value="">Choose...</option>
                 <option>I Sem</option>
@@ -152,7 +153,7 @@
               <input type="number" name="participantNo" class="form-control">
             </div>
             <div class="col-md-6 mb-3">
-              <label for="type">COE</label>
+              <label class="required" for="type">COE</label>
               <%- include ("../partials/coe") %>
             </div>
           </div>

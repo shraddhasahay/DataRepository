@@ -15,40 +15,40 @@
                     </div>
                     <div class="row data-row">
                         <div class="col-md-6 mb-3">
-                            <label>Activity Name</label>
+                            <label class="required">Activity Name</label>
                             <input type="text" name="activityName" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Topic</label>
+                            <label class="required">Topic</label>
                             <input type="text" name="topic" class="form-control">
                         </div>
                     </div>
                     <div class="row data-row">
                         <div class="col-md-6 mb-3">
-                            <label>USN</label>
+                            <label class="required">USN</label>
                             <input type="text" name="usn" class="form-control">
                             <div class="invalid-feedback">
                                 Valid USN is required.
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Attended At</label>
+                            <label class="required">Attended At</label>
                             <input type="text" name="attendedAt" class="form-control">
                         </div>
                     </div>
                     <div class="row data-row">
                         <div class="col-md-6 mb-3">
-                            <label>Start Date</label>
+                            <label class="required">Start Date</label>
                             <input type="date" name="startDate" class="form-control">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>End Date</label>
+                            <label class="required">End Date</label>
                             <input type="date" class="form-control" name="endDate">
                         </div>
                     </div>
                     <div class="row data-row">
                         <div class="col-md-6 mb-3">
-                            <label>COE</label>
+                            <label class="required">COE</label>
                             <!-- COE -->
                             <%- include ("../partials/coe") %>
 
@@ -58,7 +58,7 @@
 
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Level</label>
+                            <label class="required">Level</label>
                             <select name="level" class="custom-select d-block w-100">
                                 <option value="">Choose...</option>
                                 <option>International</option>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="row data-row">
                         <div class="col-md-6 mb-3">
-                            <label>Activity Type</label>
+                            <label class="required">Activity Type</label>
                             <select class="custom-select d-block w-100" name="activityType" id="selectBox" required=""
                                 onChange="changeFunc();">
                                 <option value="">Choose...</option>
@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Objective</label>
+                            <label class="required">Objective</label>
                             <input name="objective" type="text" class="form-control">
 
                         </div>
@@ -111,7 +111,7 @@
                     <div class="row data-row">
 
                         <div class="col-md-4 mb-3">
-                            <label>Benefits</label>
+                            <label class="required">Benefits</label>
                             <input type="text" class="form-control" name="benefits" id="benefits" placeholder=""
                                 value="" required="">
                         </div>
@@ -119,7 +119,7 @@
                         <!-- Department Field -->
 
                         <div class="col-md-4 mb-3">
-                            <label>Department</label>
+                            <label class="required">Department</label>
                             <select name="department" class="custom-select d-block w-100">
                                 <option value="">Choose...</option>
                                 <option>CSE</option>
@@ -136,7 +136,7 @@
 
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label>Submission Date</label>
+                            <label class="required">Submission Date</label>
                             <input type="date" class="form-control" name="filterDate">
                             <div class="invalid-feedback">
                                 Please select a valid date.
