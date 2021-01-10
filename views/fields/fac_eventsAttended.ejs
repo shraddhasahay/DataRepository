@@ -43,11 +43,11 @@
 
             <div class="col-md-6 mb-3">
               <label for="date" class="required">Start Date</label>
-              <input type="date" name="startDate" class="form-control">
+              <input type="date" name="startDate" class="form-control" onchange="setDate()">
             </div>
             <div class="col-md-6 mb-3">
               <label for="date" class="required">End Date</label>
-              <input type="date" name="endDate" class="form-control">
+              <input type="date" name="endDate" class="form-control eDate">
             </div>
           </div>
           <div class="row data-row">
@@ -148,6 +148,26 @@
       crossorigin="anonymous"></script>
     <script src="/ckeditor.js"></script>
     <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+                const setMaxDate = () => {
+                    const dateControl = document.querySelectorAll('input[type="date"]');
+                    let today = new Date().toISOString().slice(0, 10);
+                    dateControl.forEach(date => {
+                        date.setAttribute('max', today);
+                    })
+                }
+                setMaxDate();
+
+                
+            });
+            const setDate = () => {
+                    let sDate = document.getElementsByName('startDate')[0].value;
+                    let eDate = document.getElementsByName('endDate')[0];
+                    eDate.setAttribute('min', sDate);
+
+                }
+
       CKEDITOR.replace('editor');
       const element = CKEDITOR.document.getById('editor');
       // let eventsAttendedForm = document.querySelector('#eventsAttendedForm')

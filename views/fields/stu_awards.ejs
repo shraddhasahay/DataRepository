@@ -166,6 +166,11 @@
     <!-- Script for submiting form -->
 
     <script>
+    const dateControl = document.querySelectorAll('input[type="date"]');
+      let today = new Date().toISOString().slice(0, 10);
+      dateControl.forEach(date => {
+        date.setAttribute('max', today);
+      })
       CKEDITOR.replace('editor');
       const element = CKEDITOR.document.getById('editor');
 
