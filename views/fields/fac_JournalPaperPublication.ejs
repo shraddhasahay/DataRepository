@@ -2,14 +2,14 @@
 
   <div class="container-fluid">
     <section id="form">
-      <form id="BookPublicationform" class="needs-validation" novalidate="">
+      <form id="JournalPaperPublicationForm" class="needs-validation" novalidate="">
         <div class="container-fluid">
 
           <!-- Header Section -->
 
           <div class="row data-row">
             <div class="col-md-8 mb-3">
-              <h4 class="mb-3 title">Book Publications Data Entry</h4>
+              <h4 class="mb-3 title">Paper and Journal Publication Form</h4>
             </div>
             <div class="col-md-4 mb-3 report">
               <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
@@ -23,8 +23,8 @@
               <input type="text" name="PublisherName" class="form-control">
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">Book Name</label>
-              <input type="text" name="BookName" class="form-control">
+              <label class="required">Title of the Paper</label>
+              <input type="text" name="title" class="form-control">
             </div>
           </div>
 
@@ -35,18 +35,19 @@
               <input type="text" name="isbn" class="form-control">
             </div>
             <div class="col-md-6 mb-3">
+              <label class="required">ISSN Number</label>
+              <input type="text" name="issn" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
               <label class="required">Volume Number</label>
               <input type="text" name="volumeNumber" class="form-control">
             </div>
-          </div>
-          <div class="row data-row">
-
             <div class="col-md-6 mb-3">
-              <label for="date" class="required">Date</label>
-              <input type="date" name="Date" class="form-control" onchange="setDate()">
+              <label class="required">Name of Journal/Conference</label>
+              <input type="text" name="nameOfJournal" class="form-control">
             </div>
-            
           </div>
+          
           
           <div class="row data-row">
             

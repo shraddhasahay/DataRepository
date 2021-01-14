@@ -2,14 +2,14 @@
 
   <div class="container-fluid">
     <section id="form">
-      <form id="BookPublicationform" class="needs-validation" novalidate="">
+      <form id="SlowLearnersInitiative" class="needs-validation" novalidate="">
         <div class="container-fluid">
 
           <!-- Header Section -->
 
           <div class="row data-row">
             <div class="col-md-8 mb-3">
-              <h4 class="mb-3 title">Book Publications Data Entry</h4>
+              <h4 class="mb-3 title">Slow Learner's Initiative</h4>
             </div>
             <div class="col-md-4 mb-3 report">
               <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
@@ -19,51 +19,73 @@
           <div class="row data-row">
 
             <div class="col-md-6 mb-3">
-              <label class="required">Publisher Name</label>
-              <input type="text" name="PublisherName" class="form-control">
+              <label class="required">Subject Name</label>
+              <input type="text" name="subjectName" class="form-control">
             </div>
             <div class="col-md-6 mb-3">
-              <label class="required">Book Name</label>
-              <input type="text" name="BookName" class="form-control">
+              <label class="required">Topic</label>
+              <input type="text" name="topic" class="form-control">
             </div>
           </div>
 
           <div class="row data-row">
 
             <div class="col-md-6 mb-3">
-              <label class="required">ISBN Number</label>
-              <input type="text" name="isbn" class="form-control">
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="required">Volume Number</label>
-              <input type="text" name="volumeNumber" class="form-control">
-            </div>
-          </div>
-          <div class="row data-row">
-
-            <div class="col-md-6 mb-3">
-              <label for="date" class="required">Date</label>
-              <input type="date" name="Date" class="form-control" onchange="setDate()">
+              <label class="required">Subject Code</label>
+              <input type="text" name="subjectCode" class="form-control">
             </div>
             
+          </div>
+          <div class="row data-row">
+
+            <div class="col-md-6 mb-3">
+              <label for="date" class="required">Start Date</label>
+              <input type="date" name="startDate" class="form-control" onchange="setDate()">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="date" class="required">End Date</label>
+              <input type="date" name="endDate" class="form-control eDate">
+            </div>
           </div>
           
           <div class="row data-row">
-            
-
             <div class="col-md-4 mb-3">
-              <label class="required">COE</label>
-
-              <!-- COE  -->
-
-              <%- include ("../partials/coe") %>
-
+              <label class="required">Slow Learner's Initiative</label>
+              <select name="activityType" class="custom-select d-block w-100" id="selectBox" onChange="changeFunc();">
+                <option value="">Choose...</option>
+                <option>ICP</option>
+                <option>Remedial Classes</option>
+                
+                <option value="others">Others</option>
+                <input name="activityType" placeholder="Mention Here..." class="form-control other-text" type="text"
+                  style="display: none" id="textboxes">
                 <div class="invalid-feedback">
                   Please select a valid type.
                 </div>
+              </select>
             </div>
+            <div class="col-md-4 mb-3">
+              <label class="required">Semester</label>
+              <select name="level" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>First Semester</option>
+                <option>Second Semester</option>
+                <option>Third Semester</option>
+                <option>Fourth Semester</option>
+                <option>Fifth Semester</option>
+                <option>Sixth Semester</option>
+                <option>Seventh Semester</option>
+                <option>Eighth Semester</option>
+                <option>All Semester</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+
+            
           </div>
-          <label class="required">Description</label><br>
+          <label class="required">Event Description</label><br>
 
           <div name="description" id="editor">
             <p>This is the editor content.</p>
