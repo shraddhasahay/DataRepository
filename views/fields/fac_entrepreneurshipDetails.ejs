@@ -1,0 +1,200 @@
+<%- include ("../partials/header") %>
+
+  <div class="container-fluid">
+    <section id="form">
+      <form id="Entrepreneurship Details" class="needs-validation" novalidate="">
+        <div class="container-fluid">
+
+          <!-- Header Section -->
+
+          <div class="row data-row">
+            <div class="col-md-8 mb-3">
+              <h4 class="mb-3 title">Entrepreneurship Details</h4>
+            </div>
+            <div class="col-md-4 mb-3 report">
+              <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
+                  class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            </div>
+          </div>
+          
+
+          <div class="row data-row">
+
+            <div class="col-md-6 mb-3">
+              <label class="required">Company Name</label>
+              <input type="text" name="CompanyName" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Company Address</label>
+              <input type="text" name="CompanyAddress" class="form-control">
+            </div>
+          </div>
+          <div class="row data-row">
+
+            <div class="col-md-6 mb-3">
+              <label for="date" class="required">Establishment Date</label>
+              <input type="date" name="establishmentDate" class="form-control" onchange="setDate()">
+            </div>
+            
+          </div>
+          <div class="row data-row">
+            
+            <div class="col-md-6 mb-3">
+              <label>Revenue Generated</label>
+              <input type="text" name="revenue" class="form-control">
+            </div>
+            
+            
+            <div class="col-md-6 mb-3">
+              <label class="required">Objectives</label>
+              <input type="text" name="objectives" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Benefit in terms of learning/Skill/Knowledge obtained</label>
+              <input type="text" name="benefit" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Company Type</label>
+              <input type="text" name="Companytype" class="form-control">
+            </div>
+            
+
+
+          </div>
+          <div class="row data-row">
+            
+            
+            
+
+            <div class="col-md-4 mb-3">
+              <label class="required">COE</label>
+
+              <!-- COE  -->
+
+              <%- include ("../partials/coe") %>
+
+                <div class="invalid-feedback">
+                  Please select a valid type.
+                </div>
+            </div>
+          </div>
+          <label class="required">Description</label><br>
+
+          <div name="description" id="editor">
+            <p>This is the editor content.</p>
+          </div>
+          <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+              Submit</button>
+          </div>
+        </div>
+
+      </form>
+
+
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+
+
+  <%- include ("../partials/footer") %>
+
+    <!-- JavaScript for ckeditor -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
+      integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
+      crossorigin="anonymous"></script>
+    <script src="/ckeditor.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+                const setMaxDate = () => {
+                    const dateControl = document.querySelectorAll('input[type="date"]');
+                    let today = new Date().toISOString().slice(0, 10);
+                    dateControl.forEach(date => {
+                        date.setAttribute('max', today);
+                    })
+                }
+                setMaxDate();
+
+                
+            });
+            const setDate = () => {
+                    let sDate = document.getElementsByName('startDate')[0].value;
+                    let eDate = document.getElementsByName('endDate')[0];
+                    eDate.setAttribute('min', sDate);
+
+                }
+
+      CKEDITOR.replace('editor');
+      const element = CKEDITOR.document.getById('editor');
+      // let eventsAttendedForm = document.querySelector('#eventsAttendedForm')
+      // AJAX
+      // console.log(eventsAttendedForm)
+      // var formData = new FormData(eventsAttendedForm);
+      // const description = element.getText();
+      // console.log(description);
+      // formData.append("description", description)
+      // $("#eventsAttendedForm").ajaxForm({url: '/faculty/eventsAttended', type: 'post'})
+
+
+      function submitForm(e) {
+        // e.preventDefault()
+        var formData = new FormData(eventsAttendedForm);
+        const description = element.getText();
+        console.log(description);
+        formData.append("description", description)
+        if (formData.get("activityType") === "others") {
+          formData.set("activityType", document.querySelector(".other-text").value)
+        } else {
+          formData.set("activityType", document.querySelector("select[name='activityType']").value)
+        }
+        var object = {};
+        let flag = true;
+        formData.forEach(function (value, key) {
+          object[key] = value;
+          if (value == "")
+            flag = false;
+        });
+        console.log(object)
+        if (flag) {
+          object.filterDate = new Date();
+          let day = object.filterDate.getDate();
+          let month = object.filterDate.getMonth();
+          let year = object.filterDate.getFullYear();
+          if (day <= 5) {
+            day = 30;
+            month = month == 0 ? 11 : month - 1;
+            if (month == 11) {
+              year--;
+            }
+          } else {
+            day = 30;
+          }
+          month++;
+          object.filterDate = year.toString() + "-" + month.toString() + "-" + day.toString();
+          var json = JSON.stringify(object);
+
+
+          fetch("/faculty/eventsAttended", {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: json
+          })
+        } else {
+          alert('Please fill required fields')
+        }
+
+      }
+
+      eventsAttendedForm.addEventListener('submit', (e) => submitForm(e))
+    </script>
+
+    </body>
+
+    </html>
