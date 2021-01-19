@@ -1,0 +1,140 @@
+<%- include ("../partials/header") %>
+
+  <div class="container-fluid">
+    <section id="form">
+      <form id="myForm" class="needs-validation" novalidate action="/faculty/fac_SponsoredResearchProjects">
+        <div class="container-fluid">
+
+          <!-- Header Section -->
+
+          <div class="row data-row">
+            <div class="col-md-8 mb-3">
+              <h4 class="mb-3 title">Sponsored Research Projects</h4>
+            </div>
+            <div class="col-md-4 mb-3 report">
+              <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
+                  class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            </div>
+          </div>
+          
+
+          <div class="row data-row">
+
+            <div class="col-md-6 mb-3">
+              <label class="required">Names of PI</label>
+              <input type="text" name="NameofPI" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Names of CO->PI</label>
+              <input type="text" name="COtoPI" class="form-control">
+            </div>
+          </div>
+          <div class="row data-row">
+
+            <div class="col-md-6 mb-3">
+              <label for="date" class="required">Amount Sanctioned Date</label>
+              <input type="date" name="sanctionDate" class="form-control" onchange="setDate()">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="date" class="required">Project Submission Date</label>
+              <input type="date" name="submissionDate" class="form-control" onchange="setDate()">
+            </div>
+            
+          </div>
+          <div class="row data-row">
+            
+            <div class="col-md-6 mb-3">
+              <label class="required">Title of Project</label>
+              <input type="text" name="title" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Proposed Project Amount</label>
+              <input type="text" name="proposedAmount" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Duration Year</label>
+              <input type="text" name="durationYear" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Grant amount received/Sanctioned amount</label>
+              <input type="text" name="amount" class="form-control">
+            </div>
+            
+            <div class="col-md-6 mb-3">
+              <label class="required">Objectives</label>
+              <input type="text" name="objectives" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Benefit in terms of learning/Skill/Knowledge obtained</label>
+              <input type="text" name="benefit" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Name of the Agency to whom submitted</label>
+              <input type="text" name="AgencyName" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Received</label>
+              <input type="text" name="received" class="form-control">
+            </div>
+
+            
+
+
+          </div>
+          <div class="row data-row">
+            
+            
+            <div class="col-md-4 mb-3">
+              <label class="required">Category</label>
+              <select name="level" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>Industry Sponsored Projects</option>
+                <option>Interdisciplinary Projects</option>
+                <option>Major</option>
+                <option>Minor</option>
+                <option>Projects sponsored by University/College</option>
+                <option>Student Research Projects</option>
+                
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+              <label class="required">COE</label>
+
+              <!-- COE  -->
+
+              <%- include ("../partials/coe") %>
+
+                <div class="invalid-feedback">
+                  Please select a valid type.
+                </div>
+            </div>
+          </div>
+          
+          <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+              Submit</button>
+          </div>
+        </div>
+
+      </form>
+
+
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+
+
+  <%- include ("../partials/footer") %>
+
+    <script  type="text/javascript" src="/js/date.js">
+    </script>
+
+    </body>
+
+    </html>
