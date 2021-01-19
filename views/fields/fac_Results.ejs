@@ -1,0 +1,171 @@
+<%- include ("../partials/header") %>
+
+  <div class="container-fluid">
+    <section id="form">
+      <form id="myForm" class="needs-validation" novalidate action="/faculty/fac_Results">
+        <div class="container-fluid">
+
+          <!-- Header Section -->
+
+          <div class="row">
+            <div class="col-md-8 mb-3">
+              <h4 class="mb-3 title">Results</h4>
+            </div>
+            <div class="col-md-4 mb-3 report">
+              <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
+                  class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            </div>
+          </div>
+          
+          <div class="row">
+
+            <div class="col-md-6 mb-3">
+              <div class="form-group">
+              <label class="required">Academic Year</label>
+              <input type="text" name="academicYear" class="form-control" required>
+              <div class="invalid-feedback">
+                Valid details required.
+              </div>
+            </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="form-group">
+              <label class="required">Pass Percentage</label>
+              <input type="text" name="passPercentage" class="form-control" required>
+              <div class="invalid-feedback">
+                Valid details required.
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-md-6 mb-3">
+              <div class="form-group">
+              <label class="required">Number of FCD</label>
+              <input type="text" name="fcd" class="form-control" required>
+              <div class="invalid-feedback">
+                Valid details required.
+              </div>
+            </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Number of First Class</label>
+              <input type="text" name="firstClass" class="form-control" required>
+              <div class="invalid-feedback">
+                Valid details required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Number of Second Class</label>
+              <input type="text" name="secondClass" class="form-control" required>
+              <div class="invalid-feedback">
+                Valid details required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+            <div class="col-md-6 mb-3">
+              <div class="form-group">
+              <label class="required">Number of Failures</label>
+              <input type="text" name="failures" class="form-control" required>
+            <div class="invalid-feedback">
+              Valid details required.
+            </div>
+            </div>
+          </div>
+            <div class="col-md-6 mb-3">
+              <label class ="required">Number of student appeared</label>
+              <input type="text" name="appeared" class="form-control" required>
+              <div class="invalid-feedback">
+              Valid details required.
+            </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class ="required">Number of students Passed</label>
+              <input type="text" name="passed" class="form-control" required>
+              <div class="invalid-feedback">
+              Valid details required.
+            </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <div class="form-group">
+              <label class="required">Result Date</label>
+              <input type="date" name="resultDate" class="form-control" required onchange="setDate()">
+              <div class="invalid-feedback">
+                Valid details required.
+              </div>
+            </div>
+            </div>
+            
+
+
+          </div>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="required">Department</label>
+              <select name="department" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>CSE</option>
+                <option>ISE</option>
+                <option>ECE</option>
+                <option>TCE</option>
+                <option>EEE</option>
+                <option>CIV</option>
+                <option>MECH</option>
+                <option>MBA</option>
+                <option>MCA</option>
+                <option>Basic Sciences</option>
+                
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="required">Semester</label>
+              <select name="sem" class="custom-select d-block w-100">
+                <option value="">Choose...</option>
+                <option>I Sem</option>
+                <option>II Sem</option>
+                <option>III Sem</option>
+                <option>IV Sem</option>
+                <option>V Sem</option>
+                <option>VI Sem</option>
+                <option>VII Sem</option>
+                <option>VIII Sem</option>
+                
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid type.
+              </div>
+            </div>
+          </div>
+          
+          <%- include ("../partials/description") %>
+
+
+            <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+                Submit</button>
+            </div>
+        </div>
+      </form>
+
+
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+
+
+  <%- include ("../partials/footer") %>
+  <!-- JavaScript for ckeditor -->
+  <script type="text/javascript" src="/js/date.js"></script>
+</body>
+
+</html>
