@@ -1,0 +1,65 @@
+<%- include ("../partials/header") %>
+
+  <div class="container-fluid">
+    <section id="form">
+      <form id="myForm" class="needs-validation" novalidate action="/faculty/fac_ideaRepository">
+        <div class="container-fluid">
+
+          <!-- Header Section -->
+
+          <div class="row data-row">
+            <div class="col-md-8 mb-3">
+              <h4 class="mb-3 title">Idea Repository</h4>
+            </div>
+            <div class="col-md-4 mb-3 report">
+              <a href="/faculty/search" class="btn btn-sm btn-primary shadow-sm"><i
+                  class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            </div>
+          </div>
+          
+
+          <div class="row data-row">
+            
+            
+            
+            <div class="col-md-4 mb-3">
+              <label class="required">COE</label>
+
+              <!-- COE  -->
+
+              <%- include ("../partials/coe") %>
+
+                <div class="invalid-feedback">
+                  Please select a valid type.
+                </div>
+            </div>
+          </div>
+          <label class="required">Description</label><br>
+
+          <div name="description" id="editor">
+            <p>This is the editor content.</p>
+          </div>
+          <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
+              Submit</button>
+          </div>
+        </div>
+
+      </form>
+
+
+
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+
+
+  <%- include ("../partials/footer") %>
+
+    <script  type="text/javascript" src="/js/date.js">
+    </script>
+
+    </body>
+
+    </html>
