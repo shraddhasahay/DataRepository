@@ -21,10 +21,16 @@
             <div class="col-md-6 mb-3">
               <label class="required">Publisher Name</label>
               <input type="text" name="PublisherName" class="form-control">
+              <div class="invalid-feedback">
+                 Please enter valid details.
+                </div>
             </div>
             <div class="col-md-6 mb-3">
               <label class="required">Book Name</label>
               <input type="text" name="BookName" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
           </div>
 
@@ -33,10 +39,16 @@
             <div class="col-md-6 mb-3">
               <label class="required">ISBN Number</label>
               <input type="text" name="isbn" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             <div class="col-md-6 mb-3">
               <label class="required">Volume Number</label>
               <input type="text" name="volumeNumber" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
           </div>
           <div class="row data-row">
@@ -44,6 +56,9 @@
             <div class="col-md-6 mb-3">
               <label for="date" class="required">Date</label>
               <input type="date" name="Date" class="form-control" onchange="setDate()">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             
           </div>
@@ -67,6 +82,9 @@
 
           <div name="description" id="editor">
             <p>This is the editor content.</p>
+            <div class="invalid-feedback">
+                 Please enter valid details.
+                </div>
           </div>
           <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
               Submit</button>

@@ -23,10 +23,16 @@
             <div class="col-md-6 mb-3">
               <label class="required">Name of PI</label>
               <input type="text" name="NameofPI" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             <div class="col-md-6 mb-3">
               <label class="required">Names of CO->PI</label>
               <input type="text" name="COtoPI" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
           </div>
           <div class="row data-row">
@@ -34,6 +40,9 @@
             <div class="col-md-6 mb-3">
               <label for="date" class="required">Sanctioned Date</label>
               <input type="date" name="sanctionedDate" class="form-control" onchange="setDate()">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             
           </div>
@@ -42,27 +51,45 @@
             <div class="col-md-6 mb-3">
               <label class="required">Duration</label>
               <input type="text" name="duration" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             <div class="col-md-6 mb-3">
               <label class="required">Topic</label>
               <input type="text" name="topic" class="form-control">
+              <div class="invalid-feedback">
+                 Please enter valid details.
+                </div>
             </div>
             <div class="col-md-6 mb-3">
               <label class="required">Grant amount received/Sanctioned amount</label>
               <input type="text" name="amount" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             
             <div class="col-md-6 mb-3">
               <label class="required">Objectives</label>
               <input type="text" name="objectives" class="form-control">
+              <div class="invalid-feedback">
+                 Please enter valid details.
+                </div>
             </div>
             <div class="col-md-6 mb-3">
               <label class="required">Benefit in terms of learning/Skill/Knowledge obtained</label>
               <input type="text" name="benefit" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             <div class="col-md-6 mb-3">
               <label class="required">Name of the Agency to whom submitted</label>
               <input type="text" name="AgencyName" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             
 
@@ -100,6 +127,9 @@
 
           <div name="description" id="editor">
             <p>This is the editor content.</p>
+            <div class="invalid-feedback">
+                 Please enter valid details.
+                </div>
           </div>
           <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
               Submit</button>

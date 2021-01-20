@@ -21,10 +21,16 @@
             <div class="col-md-6 mb-3">
               <label class="required">Visitor Name</label>
               <input type="text" name="visitorName" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             <div class="col-md-6 mb-3">
               <label class="required">Mobile Number</label>
               <input type="text" name="number" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
           </div>
 
@@ -33,10 +39,16 @@
             <div class="col-md-6 mb-3">
               <label class="required">Company/College Name</label>
               <input type="text" name="companyName" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             <div class="col-md-6 mb-3">
               <label class="required">Email ID(Official/Personal)</label>
               <input type="text" name="address" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
           </div>
           <div class="row data-row">
@@ -44,6 +56,9 @@
             <div class="col-md-6 mb-3">
               <label for="date" class="required">Date of Visit</label>
               <input type="date" name="visitDate" class="form-control" onchange="setDate()">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             
           </div>
@@ -51,6 +66,9 @@
             <div class="col-md-6 mb-3">
               <label class="required">College/Company Address</label>
               <input type="text" name="address" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
            
           </div>
@@ -59,6 +77,9 @@
 
           <div name="description" id="editor">
             <p>This is the editor content.</p>
+            <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
           </div>
           <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
               Submit</button>

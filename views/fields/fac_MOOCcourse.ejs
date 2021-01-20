@@ -23,14 +23,23 @@
             <div class="col-md-6 mb-3">
               <label class="required">Name of Department</label>
               <input type="text" name="Nameofdepartment" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             <div class="col-md-6 mb-3">
               <label class="required">Duration</label>
               <input type="text" name="duration" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             <div class="col-md-6 mb-3">
               <label class="required">Status</label>
               <input type="text" name="status" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
           </div>
           <div class="row data-row">
@@ -38,10 +47,16 @@
             <div class="col-md-6 mb-3">
               <label for="date" class="required">Start Date</label>
               <input type="date" name="startdate" class="form-control" onchange="setDate()">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             <div class="col-md-6 mb-3">
               <label for="date" class="required">End Date</label>
               <input type="date" name="enddate" class="form-control" onchange="setDate()">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             
           </div>
@@ -51,6 +66,9 @@
             <div class="col-md-6 mb-3">
               <label class="required">Topic</label>
               <input type="text" name="topic" class="form-control">
+              <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
             </div>
             
             
@@ -96,6 +114,9 @@
 
           <div name="description" id="editor">
             <p>This is the editor content.</p>
+            <div class="invalid-feedback">
+                  Please enter valid details.
+                </div>
           </div>
           <div class="submit-button"><button class="btn btn-primary btn-lg btn-block buttons" type="submit">
               Submit</button>
